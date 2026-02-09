@@ -35,3 +35,8 @@
 /mnt/projects/youtube/output/thumbnails/*
 /mnt/projects/youtube/output/videos/story_6
 /mnt/projects/youtube/2>/dev/null
+/mnt/projects/youtube/scripts/ai_image_generator.py
+/mnt/projects/youtube/SESSION_MEMORY.md
+/mnt/projects/youtube/scripts/subtitle_generator.py
+/mnt/projects/youtube/scripts/keyword_optimizer.py
+/mnt/projects/youtube/scripts/reupload_videos.py

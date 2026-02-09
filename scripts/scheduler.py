@@ -1,12 +1,12 @@
 """
 Scheduler - Fully autonomous story pipeline on a fixed schedule.
 
-Creates stories throughout the day, runs analytics, and optimizes
-content strategy automatically. No human intervention required.
+Creates stories throughout the day, runs analytics, refreshes
+trending keywords, and optimizes content strategy automatically.
 
-Schedule (configurable via .env STORIES_PER_DAY, default 6):
-- Every 2-4 hours: 1 video + 1 short
-- Every 6 hours: Analytics update + content strategy optimization
+Schedule (configurable via .env):
+- 10 stories per day spread across waking hours
+- Every 6 hours: Analytics update + keyword refresh
 - Daily: Disk cleanup of old files
 """
 
@@ -39,9 +39,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Maximum video duration in seconds (5 minutes)
+MAX_VIDEO_DURATION = int(os.getenv("MAX_VIDEO_DURATION", "300"))
+
 
 def story_job(job_name: str):
-    """Create one story (video + shorts version)."""
+    """Create one story video (max 5 minutes)."""
     if not check_disk_space():
         logger.warning(f"[{job_name}] Skipping - low disk space")
         return
@@ -49,35 +52,27 @@ def story_job(job_name: str):
     logger.info(f"[{job_name}] Starting story creation...")
 
     try:
-        logger.info(f"[{job_name}] Creating regular video...")
-        result_video = create_single_story(for_shorts=False, smart_pick=True)
-        if result_video["status"] == "completed":
-            logger.info(f"[{job_name}] Video published: {result_video.get('title')}")
+        result = create_single_story(for_shorts=False, smart_pick=True)
+        if result["status"] == "completed":
+            duration = result.get("video_duration", 0)
+            logger.info(f"[{job_name}] Published: {result.get('title')} ({duration:.0f}s)")
         else:
-            logger.error(f"[{job_name}] Video failed: {result_video.get('error')}")
+            logger.error(f"[{job_name}] Failed: {result.get('error')}")
     except Exception as e:
-        logger.error(f"[{job_name}] Video creation error: {e}")
-
-    time.sleep(60)
-
-    try:
-        logger.info(f"[{job_name}] Creating shorts version...")
-        result_shorts = create_single_story(for_shorts=True, smart_pick=True)
-        if result_shorts["status"] == "completed":
-            logger.info(f"[{job_name}] Shorts published: {result_shorts.get('title')}")
-        else:
-            logger.error(f"[{job_name}] Shorts failed: {result_shorts.get('error')}")
-    except Exception as e:
-        logger.error(f"[{job_name}] Shorts creation error: {e}")
+        logger.error(f"[{job_name}] Error: {e}")
 
     logger.info(f"[{job_name}] Job complete.")
 
 
 def analytics_job():
-    """Update analytics and generate content optimization insights."""
-    logger.info("[Analytics] Running analytics update...")
+    """Update analytics and refresh trending keywords."""
+    logger.info("[Analytics] Running analytics + keyword update...")
     try:
         run_analytics_update()
+
+        # Refresh trending keywords from YouTube search data
+        from scripts.keyword_optimizer import run_keyword_refresh
+        run_keyword_refresh()
 
         # Log content strategy insights
         from scripts.story_generator import get_top_performing_themes
@@ -87,34 +82,34 @@ def analytics_job():
             for t in top:
                 logger.info(f"  {t['collection']}/{t['moral']}: "
                            f"avg_views={t['avg_views']:.0f}, count={t['story_count']}")
-        logger.info("[Analytics] Update complete - smart_pick will use these insights.")
+        logger.info("[Analytics] Update complete.")
     except Exception as e:
         logger.error(f"[Analytics] Update failed: {e}")
 
 
 def setup_schedule():
     """Configure the daily schedule based on STORIES_PER_DAY."""
-    stories_per_day = int(os.getenv("STORIES_PER_DAY", "6"))
+    stories_per_day = int(os.getenv("STORIES_PER_DAY", "10"))
 
     # Schedule story jobs evenly throughout the day
-    # Each job creates 1 video + 1 short = 2 uploads per job
     schedule_times = {
         3: ["06:00", "14:00", "22:00"],
-        4: ["05:00", "11:00", "17:00", "23:00"],
         5: ["04:00", "08:00", "12:00", "16:00", "20:00"],
         6: ["03:00", "07:00", "11:00", "15:00", "19:00", "23:00"],
         8: ["02:00", "05:00", "08:00", "11:00", "14:00", "17:00", "20:00", "23:00"],
+        10: ["01:00", "03:30", "06:00", "08:30", "11:00",
+             "13:30", "16:00", "18:30", "21:00", "23:30"],
+        12: ["00:00", "02:00", "04:00", "06:00", "08:00", "10:00",
+             "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"],
     }
 
-    times = schedule_times.get(stories_per_day, schedule_times[6])
-    job_names = ["Batch-1", "Batch-2", "Batch-3", "Batch-4", "Batch-5",
-                 "Batch-6", "Batch-7", "Batch-8"]
+    times = schedule_times.get(stories_per_day, schedule_times[10])
 
     for i, t in enumerate(times):
-        name = job_names[i] if i < len(job_names) else f"Batch-{i+1}"
+        name = f"Story-{i+1}"
         schedule.every().day.at(t).do(story_job, job_name=name)
 
-    # Analytics updates every 6 hours
+    # Analytics + keyword refresh every 6 hours
     schedule.every().day.at("00:00").do(analytics_job)
     schedule.every().day.at("06:00").do(analytics_job)
     schedule.every().day.at("12:00").do(analytics_job)
@@ -122,9 +117,16 @@ def setup_schedule():
 
     logger.info(f"Schedule configured ({stories_per_day} stories/day):")
     for t in times:
-        logger.info(f"  {t} UTC - Story batch (1 video + 1 short)")
-    logger.info(f"  Every 6h - Analytics update")
-    logger.info(f"  = {stories_per_day} videos + {stories_per_day} shorts per day")
+        logger.info(f"  {t} UTC - Story video (max {MAX_VIDEO_DURATION}s)")
+    logger.info(f"  Every 6h - Analytics + keyword refresh")
+    logger.info(f"  = {stories_per_day} videos per day")
+
+    # Quota warning
+    quota_needed = stories_per_day * 1600
+    if quota_needed > 10000:
+        logger.warning(f"  WARNING: {stories_per_day} uploads need {quota_needed} quota units/day "
+                       f"(standard limit: 10,000). Apply for higher quota at "
+                       f"https://support.google.com/youtube/contact/yt_api_form")
 
 
 def check_disk_space():
@@ -153,9 +155,18 @@ def main():
     """Main scheduler loop - fully autonomous."""
     logger.info("=" * 60)
     logger.info("Little Wisdom Tales - Autonomous Pipeline")
+    logger.info(f"Max video duration: {MAX_VIDEO_DURATION}s")
     logger.info("=" * 60)
 
     setup_schedule()
+
+    # Run initial keyword refresh on startup
+    logger.info("Running initial keyword refresh...")
+    try:
+        from scripts.keyword_optimizer import run_keyword_refresh
+        run_keyword_refresh()
+    except Exception as e:
+        logger.warning(f"Initial keyword refresh failed: {e}")
 
     # Run first story immediately on startup
     if check_disk_space():

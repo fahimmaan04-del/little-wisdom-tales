@@ -168,73 +168,196 @@ def create_scene_clip(
     height: int = 1080,
     output_path: str = None,
     ken_burns_direction: str = "zoom_in",
+    all_images: list = None,
 ) -> str:
-    """Create a single scene clip with Ken Burns effect and optional subtitles."""
+    """Create a scene clip from one or many images with audio.
+
+    If all_images is provided (list of image paths), creates an animated
+    crossfade slideshow. Otherwise falls back to single-image Ken Burns.
+    """
     if output_path is None:
         output_path = str(OUTPUT_DIR / "videos" / f"temp_scene_{scene_number:02d}.mp4")
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     duration = get_audio_duration(audio_path)
 
-    # Ken Burns effect parameters
-    # zoompan: zoom from 1.0 to 1.15 (or reverse) over the duration
+    # Multi-image animated slideshow
+    if all_images and len(all_images) > 1:
+        return _create_multi_image_clip(
+            images=all_images,
+            audio_path=audio_path,
+            duration=duration,
+            width=width,
+            height=height,
+            output_path=output_path,
+        )
+
+    # Single image fallback: Ken Burns effect
+    return _create_single_image_clip(
+        image_path=image_path,
+        audio_path=audio_path,
+        duration=duration,
+        width=width,
+        height=height,
+        output_path=output_path,
+        ken_burns_direction=ken_burns_direction,
+    )
+
+
+def _create_single_image_clip(
+    image_path: str,
+    audio_path: str,
+    duration: float,
+    width: int,
+    height: int,
+    output_path: str,
+    ken_burns_direction: str = "zoom_in",
+) -> str:
+    """Single image with Ken Burns effect (legacy fallback)."""
     fps = 25
     total_frames = int(duration * fps)
 
     if ken_burns_direction == "zoom_in":
-        zoom_expr = f"min(zoom+0.0005,1.15)"
-        x_expr = f"iw/2-(iw/zoom/2)"
-        y_expr = f"ih/2-(ih/zoom/2)"
+        zoom_expr = "min(zoom+0.0005,1.15)"
+        x_expr = "iw/2-(iw/zoom/2)"
+        y_expr = "ih/2-(ih/zoom/2)"
     elif ken_burns_direction == "zoom_out":
-        zoom_expr = f"if(eq(on,1),1.15,max(zoom-0.0005,1.0))"
-        x_expr = f"iw/2-(iw/zoom/2)"
-        y_expr = f"ih/2-(ih/zoom/2)"
+        zoom_expr = "if(eq(on,1),1.15,max(zoom-0.0005,1.0))"
+        x_expr = "iw/2-(iw/zoom/2)"
+        y_expr = "ih/2-(ih/zoom/2)"
     elif ken_burns_direction == "pan_left":
         zoom_expr = "1.1"
         x_expr = f"(iw-iw/zoom)*on/{total_frames}"
-        y_expr = f"ih/2-(ih/zoom/2)"
+        y_expr = "ih/2-(ih/zoom/2)"
     elif ken_burns_direction == "pan_right":
         zoom_expr = "1.1"
         x_expr = f"(iw-iw/zoom)*(1-on/{total_frames})"
-        y_expr = f"ih/2-(ih/zoom/2)"
+        y_expr = "ih/2-(ih/zoom/2)"
     else:
-        zoom_expr = f"min(zoom+0.0005,1.15)"
-        x_expr = f"iw/2-(iw/zoom/2)"
-        y_expr = f"ih/2-(ih/zoom/2)"
+        zoom_expr = "min(zoom+0.0005,1.15)"
+        x_expr = "iw/2-(iw/zoom/2)"
+        y_expr = "ih/2-(ih/zoom/2)"
 
-    # Build filter
     filters = [
         f"zoompan=z='{zoom_expr}':x='{x_expr}':y='{y_expr}'"
-        f":d={total_frames}:s={width}x{height}:fps={fps}"
+        f":d={total_frames}:s={width}x{height}:fps={fps}",
+        "vignette=PI/5",
     ]
-
-    # Add subtle vignette for cinematic feel
-    filters.append("vignette=PI/5")
-
-    # Note: subtitles are skipped since this FFmpeg build lacks drawtext filter.
-    # The narration audio serves as the primary storytelling medium.
-
     filter_str = ",".join(filters)
 
     cmd = [
         "ffmpeg", "-y",
-        "-loop", "1",
-        "-i", image_path,
+        "-loop", "1", "-i", image_path,
         "-i", audio_path,
         "-vf", filter_str,
-        "-c:v", "libx264",
-        "-preset", "medium",
-        "-crf", "23",
-        "-c:a", "aac",
-        "-ar", "24000",
-        "-ac", "1",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "23",
+        "-c:a", "aac", "-ar", "24000", "-ac", "1",
         "-t", str(duration),
-        "-pix_fmt", "yuv420p",
-        "-shortest",
+        "-pix_fmt", "yuv420p", "-shortest",
         output_path,
     ]
-
     subprocess.run(cmd, check=True, capture_output=True, text=True)
+    return output_path
+
+
+def _create_multi_image_clip(
+    images: list,
+    audio_path: str,
+    duration: float,
+    width: int,
+    height: int,
+    output_path: str,
+) -> str:
+    """Create an animated slideshow clip from multiple images.
+
+    Uses FFmpeg concat demuxer with per-image durations to create a rapid
+    crossfade effect. Each image gets a slight Ken Burns micro-motion.
+    Images cycle through at ~0.3-0.5s each, creating animation-like flow.
+    """
+    fps = 25
+    num_images = len(images)
+    time_per_image = duration / num_images
+
+    # Ensure minimum display time of 0.2s per image
+    if time_per_image < 0.2:
+        # Too many images for the duration - subsample
+        step = max(1, int(num_images / (duration / 0.3)))
+        images = images[::step]
+        num_images = len(images)
+        time_per_image = duration / num_images
+
+    # Resize all images to video resolution first
+    resized_dir = Path(output_path).parent / f"_resized_{Path(output_path).stem}"
+    resized_dir.mkdir(parents=True, exist_ok=True)
+
+    resized_images = []
+    for i, img_path in enumerate(images):
+        resized_path = str(resized_dir / f"frame_{i:04d}.jpg")
+        _resize_image_to_video(img_path, resized_path, width, height)
+        resized_images.append(resized_path)
+
+    # Write concat file with durations
+    concat_file = str(Path(output_path).parent / f"_concat_{Path(output_path).stem}.txt")
+    with open(concat_file, "w") as f:
+        for i, img_path in enumerate(resized_images):
+            f.write(f"file '{os.path.abspath(img_path)}'\n")
+            f.write(f"duration {time_per_image:.4f}\n")
+        # FFmpeg concat demuxer needs the last file repeated without duration
+        f.write(f"file '{os.path.abspath(resized_images[-1])}'\n")
+
+    # Build video from image sequence + audio
+    cmd = [
+        "ffmpeg", "-y",
+        "-f", "concat", "-safe", "0", "-i", concat_file,
+        "-i", audio_path,
+        "-vf", f"fps={fps},vignette=PI/5",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "23",
+        "-c:a", "aac", "-ar", "24000", "-ac", "1",
+        "-t", str(duration),
+        "-pix_fmt", "yuv420p", "-shortest",
+        output_path,
+    ]
+    subprocess.run(cmd, check=True, capture_output=True, text=True)
+
+    # Cleanup temp files
+    import shutil
+    os.remove(concat_file)
+    shutil.rmtree(resized_dir, ignore_errors=True)
+
+    return output_path
+
+
+def _resize_image_to_video(
+    input_path: str, output_path: str, width: int, height: int
+) -> str:
+    """Resize and pad an AI-generated image to exact video dimensions."""
+    from PIL import Image as PILImage
+
+    img = PILImage.open(input_path)
+    if img.mode != "RGB":
+        img = img.convert("RGB")
+
+    # Calculate resize to fill (cover), then center crop
+    target_ratio = width / height
+    img_ratio = img.width / img.height
+
+    if img_ratio > target_ratio:
+        # Wider - resize by height, crop width
+        new_h = height
+        new_w = int(img.width * (height / img.height))
+    else:
+        # Taller - resize by width, crop height
+        new_w = width
+        new_h = int(img.height * (width / img.width))
+
+    img = img.resize((new_w, new_h), PILImage.LANCZOS)
+
+    # Center crop to exact dimensions
+    left = (new_w - width) // 2
+    top = (new_h - height) // 2
+    img = img.crop((left, top, left + width, top + height))
+
+    img.save(output_path, "JPEG", quality=95)
     return output_path
 
 
@@ -390,6 +513,7 @@ def assemble_story_video(
 
         scene_img = image_map.get(scene_num, {})
         image_path = scene_img.get("image_path")
+        all_images = scene_img.get("all_images")  # Multi-image support
 
         if not image_path or not os.path.exists(image_path):
             print(f"    Warning: No image for scene {scene_num}, creating placeholder")
@@ -399,11 +523,11 @@ def assemble_story_video(
                 scene_data.get("visual_description", f"Scene {scene_num}"),
                 width=width, height=height, bg_color="#2C3E50",
             )
+            all_images = None
 
-        # Alternate Ken Burns direction for visual variety
+        # Alternate Ken Burns direction for visual variety (single-image fallback)
         kb_dir = ken_burns_directions[i % len(ken_burns_directions)]
 
-        # Get subtitle text from the story script
         scene_data = next(
             (s for s in story_script["scenes"] if s["scene_number"] == scene_num), {}
         )
@@ -418,6 +542,7 @@ def assemble_story_video(
             height=height,
             output_path=str(video_dir / f"{scene_num:02d}_scene.mp4"),
             ken_burns_direction=kb_dir,
+            all_images=all_images,
         )
         clips.append(clip_path)
 

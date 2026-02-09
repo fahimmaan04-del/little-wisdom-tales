@@ -1,152 +1,331 @@
-# Kids Story Channel - Complete Setup Guide
+# Little Wisdom Tales - Complete Setup Guide
 
 ## What This Does
-This automated pipeline creates and publishes 3 kid-friendly moral story videos per day to your YouTube channel. Stories come from world folklore (Aesop's Fables, Panchatantra, Arabian Nights, African tales, etc.) with cartoon-like voiceover and animated illustrations.
+This automated pipeline creates and publishes kid-friendly moral story videos to your YouTube channel 24/7. Stories come from world folklore (Aesop's Fables, Panchatantra, Arabian Nights, African tales, etc.) with cartoon-style voiceover, AI-generated illustrations, and animated video effects.
 
 ## Architecture Overview
 ```
-[Scheduler] → [Story Generator (Ollama AI)] → [Voice Generator (Edge TTS)]
-                                                        ↓
-[YouTube Upload] ← [Video Assembler (FFmpeg)] ← [Image Fetcher (Pixabay)]
-       ↓
-[Analytics Tracker] → feeds back into story selection
+[Scheduler] -> [Story Generator (Ollama LLM)] -> [Voice Generator (Edge TTS)]
+                                                          |
+[YouTube Upload] <- [Video Assembler (FFmpeg)] <- [AI Image Generator (SDXL Turbo)]
+       |                                                  |
+       v                                           [Pixabay Fallback]
+[Analytics Tracker] -> feeds back into story selection
+       |
+[Subtitle Generator] -> Multi-language SRT captions
 ```
 
-## Prerequisites (5 Free Accounts Needed)
+## System Requirements
 
-### 1. Oracle Cloud Always Free Tier (Hosting)
-**Cost: FREE forever**
-- Go to: https://cloud.oracle.com/
-- Sign up for "Always Free" tier
-- Create an ARM Compute Instance:
-  - Shape: `VM.Standard.A1.Flex` (ARM)
-  - OCPUs: 4, Memory: 24GB (max free)
-  - OS: Ubuntu 22.04
-  - This is your 24/7 server — it runs forever for free
+### Hardware (GPU Server)
+- **GPU**: NVIDIA GPU with 8+ GB VRAM (tested on RTX A5000 24GB)
+- **RAM**: 16GB+ recommended
+- **Storage**: 50GB+ for models, output, and cache
+- **OS**: Ubuntu 22.04+
 
-### 2. Google Cloud Console (YouTube API)
-**Cost: FREE**
+### Software
+- Python 3.12+
+- FFmpeg 6.1+ (with NVENC support for GPU encoding)
+- NVIDIA Driver 530+ with CUDA support
+- Ollama (for local LLM inference)
+
+## Prerequisites (API Keys Needed)
+
+### 1. Google Cloud Console (YouTube API) - FREE
 - Go to: https://console.cloud.google.com/
-- Sign in with: fahim.maan04@gmail.com
-- Steps:
-  1. Click "Select a project" → "New Project" → Name it "Kids Story Channel"
-  2. In left sidebar: "APIs & Services" → "Enable APIs"
-  3. Search for "YouTube Data API v3" → Enable it
-  4. Go to "Credentials" → "Create Credentials" → "OAuth 2.0 Client ID"
-  5. Application type: "Desktop App"
-  6. Download the credentials — you'll need the Client ID and Client Secret
+- Create a new project
+- Enable "YouTube Data API v3"
+- Create OAuth 2.0 Client ID (Desktop App type)
+- Note the Client ID and Client Secret
 
-### 3. Pixabay API Key
-**Cost: FREE (5,000 requests/day)**
+### 2. Pixabay API Key (Fallback Images) - FREE
 - Go to: https://pixabay.com/api/docs/
-- Create account → Get your API key
-- This provides cartoon/illustration images for stories
+- Create account and get API key
+- Used as fallback when AI image generation fails
 
-### 4. Pexels API Key (Backup)
-**Cost: FREE**
+### 3. Pexels API Key (Backup Fallback) - FREE
 - Go to: https://www.pexels.com/api/
-- Create account → Get your API key
-- Backup image source if Pixabay doesn't have good matches
+- Create account and get API key
 
-### 5. (Optional) Google Gemini API
-**Cost: FREE tier (15 requests/minute)**
+### 4. (Optional) Google Gemini API - FREE tier
 - Go to: https://aistudio.google.com/
-- Get API key
-- Backup for story generation if Ollama is slow
+- Backup LLM if Ollama is unavailable
 
 ---
 
-## Deployment Steps
+## Installation
 
-### Step 1: SSH into your Oracle Cloud server
+### Step 1: Clone the repository
 ```bash
-ssh ubuntu@YOUR_SERVER_IP
+git clone https://github.com/fahimmaan04-del/little-wisdom-tales.git
+cd little-wisdom-tales
 ```
 
-### Step 2: Clone/copy the project
+### Step 2: Create Python virtual environment
 ```bash
-cd ~
-# If using git:
-git clone YOUR_REPO_URL youtube-channel
-cd youtube-channel
-
-# Or copy files via scp from your local machine
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-### Step 3: Run the deployment script
+### Step 3: Install PyTorch with CUDA support
 ```bash
-chmod +x deploy.sh
-./deploy.sh
+pip install torch==2.5.1+cu124 --extra-index-url https://download.pytorch.org/whl/cu124
+pip install diffusers transformers accelerate safetensors
 ```
-This installs Docker, Python, FFmpeg, Ollama, and all dependencies.
 
-### Step 4: Configure your API keys
+### Step 4: Install Ollama
 ```bash
+curl -fsSL https://ollama.ai/install.sh | sh
+ollama pull llama3.2:3b
+```
+
+### Step 5: Configure environment
+```bash
+cp .env.example .env
 nano .env
 ```
-Fill in:
+Fill in your API keys:
 ```
-YOUTUBE_CLIENT_ID=paste_from_google_cloud
-YOUTUBE_CLIENT_SECRET=paste_from_google_cloud
-PIXABAY_API_KEY=paste_from_pixabay
-PEXELS_API_KEY=paste_from_pexels
+YOUTUBE_CLIENT_ID=your_client_id
+YOUTUBE_CLIENT_SECRET=your_client_secret
+YOUTUBE_CHANNEL_ID=your_channel_id
+PIXABAY_API_KEY=your_pixabay_key
+PEXELS_API_KEY=your_pexels_key
 ```
-Save: Ctrl+O, Enter, Ctrl+X
 
-### Step 5: Authenticate with YouTube (ONE TIME)
+### Step 6: Pre-download SDXL Turbo model
+```bash
+source venv/bin/activate
+python -c "
+from diffusers import AutoPipelineForText2Image
+import torch
+pipe = AutoPipelineForText2Image.from_pretrained(
+    'stabilityai/sdxl-turbo', torch_dtype=torch.float16, variant='fp16'
+)
+pipe.to('cuda')
+print('Model loaded successfully!')
+del pipe; torch.cuda.empty_cache()
+"
+```
+
+### Step 7: Authenticate with YouTube (ONE TIME)
 ```bash
 source venv/bin/activate
 python scripts/youtube_manager.py auth
 ```
-This will print a URL. Open it in your browser, sign in with fahim.maan04@gmail.com, authorize access, and paste the code back.
+This prints a URL. Open it in your browser, sign in, authorize access, and paste the code back. After this, the system has permanent access to your YouTube channel.
 
-After this, the system has permanent access to your YouTube channel.
-
-### Step 6: Start the pipeline
+### Step 8: Test the pipeline
 ```bash
-sudo docker-compose up -d
+# Test without uploading to YouTube
+python scripts/orchestrator.py test
+
+# Create and upload a single story
+python scripts/orchestrator.py single
 ```
 
-**That's it! The system is now running 24/7.**
+### Step 9: Start the 24/7 service
+```bash
+# Install and start the systemd service
+sudo cp systemd/kids-story-pipeline.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable kids-story-pipeline
+sudo systemctl start kids-story-pipeline
+```
 
 ---
 
-## What Happens Automatically
+## Pipeline Components
 
+### Image Generation (AI-Powered)
+- **Primary**: SDXL Turbo on local GPU - generates 30 varied images per scene
+  - Different angles: close-up, wide, bird's eye, dramatic, etc.
+  - Generates at 512x512 native, resized to 1024x576 for video
+  - ~0.5s per image on RTX A5000
+- **Fallback**: Pixabay stock illustrations (if GPU unavailable)
+- **Last resort**: PIL-generated text overlay cards
+
+### Video Assembly
+- Multi-image crossfade slideshow (30 images per scene)
+- Ken Burns zoom/pan effects (single-image fallback)
+- PIL-rendered text overlays (FFmpeg lacks libfreetype)
+- H.264 encoding, yuv420p pixel format
+- Intro card, scene clips, moral card, background music
+
+### Subtitle Generation (Multi-Language)
+- Auto-generates SRT subtitles from story narration
+- Translates to 5 languages: Spanish, Hindi, French, Portuguese, Arabic
+- Uploads captions to YouTube via Data API v3
+- Uses deep-translator (Google Translate, free, no API key)
+
+### Content Strategy (Analytics-Driven)
+- SQLite database tracks story performance
+- `pick_smart_story_params()` selects topics based on past analytics
+- Engagement hooks: intro, midpoint, and outro CTAs
+- SEO-optimized titles and descriptions
+
+---
+
+## Scheduling
+
+### Default Schedule (3 stories/day)
 | Time (UTC) | Action |
 |------------|--------|
 | 06:00 | Creates & publishes 1 story video + 1 short |
 | 14:00 | Creates & publishes 1 story video + 1 short |
 | 22:00 | Creates & publishes 1 story video + 1 short |
-| 04:00 | Updates analytics, optimizes future story selection |
+| Every 6h | Updates analytics, optimizes future content |
 
-**Total: 3 full videos + 3 shorts per day, every day.**
+Configure in `.env`:
+```
+VIDEOS_PER_DAY=3      # 3, 6, or 8 stories/day
+PUBLISH_AS_SHORTS=true
+PUBLISH_AS_VIDEO=true
+```
+
+**Note**: YouTube Data API allows ~6 uploads/day (10,000 quota, 1,600 per upload). With video + shorts for each story, 3 stories/day = 6 uploads = quota limit.
+
+---
+
+## Key Commands
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Test single story (no upload)
+python scripts/orchestrator.py test
+
+# Create and upload single story
+python scripts/orchestrator.py single
+
+# Create multiple stories
+python scripts/orchestrator.py single --count 3
+
+# Run daily batch
+python scripts/orchestrator.py batch
+
+# Update analytics
+python scripts/orchestrator.py analytics
+
+# Test AI image generation
+python scripts/ai_image_generator.py
+
+# Test subtitle generation
+python scripts/subtitle_generator.py
+
+# Service management
+sudo systemctl start kids-story-pipeline
+sudo systemctl stop kids-story-pipeline
+sudo systemctl status kids-story-pipeline
+journalctl -u kids-story-pipeline -f
+```
 
 ---
 
 ## Monitoring
 
-### Check if it's running:
+### Check service status
 ```bash
-sudo docker-compose ps
+sudo systemctl status kids-story-pipeline
 ```
 
-### View logs:
+### View logs
 ```bash
-# Recent pipeline activity
+# Pipeline activity
 tail -50 data/logs/orchestrator.log
 
 # Scheduler activity
 tail -50 data/logs/scheduler.log
 
-# Docker container logs
-sudo docker-compose logs --tail=50 scheduler
+# Service logs
+tail -50 data/logs/service.log
 ```
 
-### Check n8n dashboard:
-Open `http://YOUR_SERVER_IP:5678` in browser
-- Username: admin
-- Password: changeme (change this in .env!)
+### Check GPU usage
+```bash
+nvidia-smi
+```
+
+### Check disk space
+```bash
+df -h /mnt
+du -sh output/*
+```
+
+---
+
+## Directory Structure
+```
+scripts/              # Python pipeline modules
+  orchestrator.py     # Main pipeline coordinator
+  story_generator.py  # LLM story script generation
+  tts_generator.py    # Edge TTS voiceover
+  ai_image_generator.py  # SDXL Turbo image generation
+  image_fetcher.py    # Pixabay/Pexels fallback
+  video_assembler.py  # FFmpeg video assembly
+  youtube_manager.py  # YouTube API upload/analytics
+  engagement_hooks.py # Intro/midpoint/outro hooks
+  subtitle_generator.py # Multi-language subtitles
+  scheduler.py        # 24/7 cron-like scheduler
+config/               # voices.json, story_themes.json
+output/               # Generated content
+  audio/              # TTS voiceover files (WAV)
+  images/             # AI-generated scene images (JPEG)
+  videos/             # Final videos (MP4)
+  thumbnails/         # Video thumbnails
+  subtitles/          # SRT subtitle files
+data/                 # SQLite DB, logs
+  stories.db          # Story + analytics tracking
+  logs/               # Pipeline execution logs
+assets/               # Static assets (fonts, music, intros)
+systemd/              # Service definitions
+```
+
+---
+
+## Troubleshooting
+
+### "NVIDIA driver/library version mismatch"
+Reboot the system. This happens when the kernel module and userspace libraries are out of sync after a driver update.
+```bash
+sudo reboot
+```
+
+### "CUDA out of memory"
+The SDXL Turbo model uses ~6.5GB VRAM. If other processes are using GPU memory:
+```bash
+nvidia-smi  # Check GPU memory usage
+# Kill any stale Python processes using GPU
+```
+
+### "YouTube upload failed"
+Check `data/logs/orchestrator.log`. Common causes:
+- Token expired: Run `python scripts/youtube_manager.py auth`
+- Quota exceeded: Wait until midnight Pacific time (quota resets daily)
+- Network issues: Check internet connectivity
+
+### "Ollama is slow"
+Set `LLM_PROVIDER=gemini` in .env to use Google's free API instead.
+
+### "No images found"
+AI image generation is primary. If SDXL fails, check:
+1. `nvidia-smi` - GPU available?
+2. `python -c "import torch; print(torch.cuda.is_available())"` - CUDA working?
+3. Fallback: Pixabay (check PIXABAY_API_KEY in .env)
+
+### Disk space issues
+The scheduler auto-cleans output directories older than 3 days when free space drops below 2GB.
+
+---
+
+## Important Constraints
+- FFmpeg has NO libmp3lame (use WAV/AAC for audio)
+- FFmpeg has NO libfreetype (use PIL for text overlays)
+- YouTube Made for Kids = no comments, limited features
+- YouTube Data API quota: 10,000 units/day (~6 uploads)
+- SDXL Turbo generates at 512x512 native resolution
 
 ---
 
@@ -154,47 +333,20 @@ Open `http://YOUR_SERVER_IP:5678` in browser
 
 | Service | Cost | Notes |
 |---------|------|-------|
-| Oracle Cloud ARM VM | FREE | 4 cores, 24GB RAM, forever free |
-| n8n (self-hosted) | FREE | Open source |
-| Ollama (local AI) | FREE | Runs on the VM |
+| GPU Server | Varies | RTX A5000 or similar |
+| Ollama (local AI) | FREE | Runs locally |
 | Edge TTS (voices) | FREE | Microsoft's free TTS |
-| Pixabay API | FREE | 5,000 req/day |
-| Pexels API | FREE | Backup images |
+| SDXL Turbo (images) | FREE | Runs locally on GPU |
+| Pixabay API | FREE | 5,000 req/day fallback |
 | YouTube Data API | FREE | 10,000 quota/day |
 | FFmpeg | FREE | Open source |
-| **TOTAL** | **$0/month** | |
+| deep-translator | FREE | Google Translate wrapper |
 
 ---
 
-## Troubleshooting
-
-### "Ollama is slow"
-The free ARM VM is not the fastest for AI. Stories take 2-5 minutes to generate. This is normal. Alternatively, set `LLM_PROVIDER=gemini` in .env to use Google's free API instead.
-
-### "YouTube upload failed"
-Check `data/logs/orchestrator.log` for errors. Most common: token expired. Run `python scripts/youtube_manager.py auth` again.
-
-### "No images found"
-Make sure PIXABAY_API_KEY is set correctly in .env. The system falls back to text cards if no images are found.
-
-### "Server rebooted"
-The systemd service auto-starts Docker on boot. Check with: `sudo systemctl status kids-story-channel`
-
----
-
-## Revenue Expectations
-
-YouTube monetization requirements:
-- 1,000 subscribers
-- 4,000 watch hours (or 10M Shorts views in 90 days)
-
-Kids content gets lower CPM ($1-3/1000 views vs $5-15 for adults), but:
-- Kids content gets MASSIVE views (millions)
-- Shorts can go viral quickly
-- Consistency (3 videos/day) is key for the algorithm
-
-Realistic timeline:
-- Month 1-2: Building library, minimal views
-- Month 3-6: Algorithm starts recommending, 10K-100K views/month
-- Month 6-12: If content catches on, 100K-1M+ views/month
-- Monetization eligibility: Typically 3-6 months with consistent uploads
+## YouTube Channel Info
+- **Name**: Little Wisdom Tales
+- **Handle**: @WisdomTalesKids
+- **Channel ID**: UCYu3K3wJQ1t12qzMHXuXYnQ
+- **Content**: Kid-friendly moral stories (ages 4-10)
+- **Compliance**: Made for Kids enabled

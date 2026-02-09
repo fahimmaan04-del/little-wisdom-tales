@@ -32,6 +32,7 @@ load_dotenv()
 from scripts.story_generator import generate_story_script, get_db, pick_smart_story_params
 from scripts.tts_generator import generate_audio_sync
 from scripts.image_fetcher import fetch_scene_images
+from scripts.ai_image_generator import generate_story_images, unload_model as unload_ai_model
 from scripts.video_assembler import assemble_story_video
 from scripts.engagement_hooks import (
     inject_engagement_hooks,
@@ -45,6 +46,13 @@ from scripts.youtube_manager import (
     create_or_get_playlist,
     add_to_playlist,
 )
+from scripts.keyword_optimizer import (
+    optimize_title,
+    optimize_tags,
+    optimize_description,
+    track_keyword_usage,
+)
+from scripts.subtitle_generator import generate_subtitles_for_story
 
 OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", "./output"))
 DATA_DIR = Path(os.getenv("DATA_DIR", "./data"))
@@ -97,12 +105,18 @@ def create_single_story(
         # Inject engagement hooks (intro, midpoint, outro with subscribe CTA)
         story_script = inject_engagement_hooks(story_script, is_shorts=for_shorts)
 
-        # Generate optimized title
+        # Generate optimized title (base + trending keywords)
         title = generate_engaging_title(
             story_title=story_script.get("title", "Untitled Story"),
             moral=story_script.get("moral", ""),
             origin=story_script.get("origin", ""),
             is_shorts=for_shorts,
+        )
+        # Enhance title with trending keywords from analytics
+        title = optimize_title(
+            title,
+            moral=story_script.get("moral", ""),
+            collection=story_script.get("collection", ""),
         )
         story_script["display_title"] = title
 
@@ -121,10 +135,20 @@ def create_single_story(
 
         result["audio_duration"] = audio_data["total_duration"]
 
-        # Step 3: Fetch scene images
-        logger.info("STEP 3: Fetching scene images...")
-        image_data = fetch_scene_images(story_script, story_id, for_shorts=for_shorts)
-        logger.info(f"  Fetched {len(image_data)} images")
+        # Step 3: Generate AI images (with Pixabay fallback)
+        logger.info("STEP 3: Generating AI scene images...")
+        try:
+            image_data = generate_story_images(
+                story_script, story_id,
+                for_shorts=for_shorts,
+                images_per_scene=30,
+            )
+            total_imgs = sum(len(d.get("all_images", [1])) for d in image_data)
+            logger.info(f"  AI generated {total_imgs} images for {len(image_data)} scenes")
+        except Exception as e:
+            logger.warning(f"  AI image generation failed: {e}, falling back to Pixabay")
+            image_data = fetch_scene_images(story_script, story_id, for_shorts=for_shorts)
+            logger.info(f"  Fetched {len(image_data)} stock images (fallback)")
 
         result["images_fetched"] = len(image_data)
 
@@ -143,11 +167,27 @@ def create_single_story(
         result["video_path"] = video_data["video_path"]
         result["video_duration"] = video_data["duration_seconds"]
 
+        # Step 4.5: Generate subtitles (multi-language)
+        logger.info("STEP 4.5: Generating multi-language subtitles...")
+        try:
+            subtitle_data = generate_subtitles_for_story(
+                story_script, audio_data, story_id,
+            )
+            logger.info(f"  Subtitles generated: {', '.join(subtitle_data.get('languages', ['en']))}")
+            result["subtitles"] = subtitle_data.get("languages", [])
+        except Exception as e:
+            subtitle_data = None
+            logger.warning(f"  Subtitle generation failed: {e}")
+
         # Step 5: Upload to YouTube
         if upload:
             logger.info("STEP 5: Uploading to YouTube...")
             description = generate_description(story_script, is_shorts=for_shorts)
             tags = story_script.get("tags", [])
+
+            # Enhance tags and description with trending keywords
+            tags = optimize_tags(tags, story_script=story_script)
+            description = optimize_description(description, story_script=story_script)
 
             upload_result = upload_video(
                 video_path=video_data["video_path"],
@@ -161,6 +201,24 @@ def create_single_story(
 
             mark_story_published(story_id, upload_result["video_id"])
             logger.info(f"  Published: {upload_result['url']}")
+
+            # Track which trending keywords were used
+            try:
+                track_keyword_usage(story_id, tags, used_in="tags")
+            except Exception:
+                pass
+
+            # Upload subtitles to YouTube
+            if subtitle_data and subtitle_data.get("caption_files"):
+                try:
+                    from scripts.subtitle_generator import upload_captions_to_youtube
+                    upload_captions_to_youtube(
+                        upload_result["video_id"],
+                        subtitle_data["caption_files"],
+                    )
+                    logger.info("  Subtitles uploaded to YouTube")
+                except Exception as e:
+                    logger.warning(f"  Caption upload failed: {e}")
 
             # Add to appropriate playlist
             try:
@@ -178,6 +236,12 @@ def create_single_story(
 
         # Cleanup temporary files (keep final video + thumbnail)
         cleanup_temp_files(story_id)
+
+        # Free GPU memory after AI image generation
+        try:
+            unload_ai_model()
+        except Exception:
+            pass
 
         result["status"] = "completed"
         logger.info(f"Pipeline completed for story '{title}'")

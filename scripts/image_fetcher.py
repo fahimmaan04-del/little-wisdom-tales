@@ -43,14 +43,14 @@ def search_pixabay(
         "order": "popular",
     }
 
-    # Only add category if it's a valid Pixabay category
+    # Only add category if specified and valid
     valid_categories = [
         "backgrounds", "fashion", "nature", "science", "education",
         "feelings", "health", "people", "religion", "places",
         "animals", "industry", "computer", "food", "sports",
         "transportation", "travel", "buildings", "business", "music"
     ]
-    if category in valid_categories:
+    if category and category in valid_categories:
         params["category"] = category
 
     try:
@@ -267,27 +267,37 @@ def fetch_scene_images(story_script: dict, story_id: int, for_shorts: bool = Fal
 
     for scene in scenes:
         scene_num = scene["scene_number"]
-        search_terms = scene.get("image_search_terms", scene.get("visual_description", ""))
+        search_terms = scene.get("image_search_terms", "")
+        visual_desc = scene.get("visual_description", "")
 
-        # Truncate search terms to avoid Pixabay 400 errors (max ~100 chars)
-        words = search_terms.split()[:8]
-        search_terms = " ".join(words)
+        # Use image_search_terms first, fall back to visual_description
+        primary = search_terms or visual_desc
 
-        # Add kid-friendly modifiers to search
-        kid_search = f"{search_terms} cartoon illustration kids colorful"
+        # Truncate to first 6 keywords to avoid Pixabay 400 errors
+        words = primary.split()[:6]
+        short_search = " ".join(words)
 
-        print(f"  Fetching image for scene {scene_num}: {kid_search[:50]}...")
+        # Build kid-friendly search query
+        kid_search = f"{short_search} cartoon illustration kids"
 
-        # Try Pixabay first
-        images = search_pixabay(kid_search, per_page=3, image_type="illustration")
+        print(f"  Fetching image for scene {scene_num}: {kid_search[:55]}...")
 
-        # Fallback to Pexels
+        # Strategy 1: Pixabay illustration (no category restriction)
+        images = search_pixabay(kid_search, per_page=5, image_type="illustration", category="")
+
+        # Strategy 2: Try with visual_description keywords
+        if not images and visual_desc:
+            vis_words = visual_desc.split()[:5]
+            vis_search = " ".join(vis_words) + " cartoon kids"
+            images = search_pixabay(vis_search, per_page=5, image_type="illustration", category="")
+
+        # Strategy 3: Broader search without modifiers
+        if not images:
+            images = search_pixabay(short_search, per_page=5, image_type="vector", category="")
+
+        # Strategy 4: Pexels fallback
         if not images:
             images = search_pexels(kid_search, per_page=3)
-
-        # Fallback to vector images on Pixabay
-        if not images:
-            images = search_pixabay(search_terms, per_page=3, image_type="vector")
 
         if images:
             # Download the best match

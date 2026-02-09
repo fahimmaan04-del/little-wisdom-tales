@@ -1,0 +1,86 @@
+version: "3.8"
+
+services:
+  # n8n - Workflow automation engine
+  n8n:
+    image: n8nio/n8n:latest
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD:-changeme}
+      - GENERIC_TIMEZONE=UTC
+      - TZ=UTC
+      - N8N_SECURE_COOKIE=false
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./scripts:/home/node/scripts:ro
+      - ./config:/home/node/config:ro
+      - ./output:/home/node/output
+      - ./data:/home/node/data
+    networks:
+      - story_network
+
+  # Story Pipeline Worker - Runs the Python pipeline
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./scripts:/app/scripts
+      - ./config:/app/config
+      - ./output:/app/output
+      - ./data:/app/data
+      - ./assets:/app/assets
+      - ./.env:/app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    networks:
+      - story_network
+
+  # Ollama - Local LLM server (free)
+  ollama:
+    image: ollama/ollama:latest
+    restart: always
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - story_network
+    # On ARM (Oracle Cloud), use the default image
+    # On x86 with GPU, add: deploy: resources: reservations: devices: - driver: nvidia
+
+  # Cron scheduler - triggers the pipeline
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./scripts:/app/scripts
+      - ./config:/app/config
+      - ./output:/app/output
+      - ./data:/app/data
+      - ./assets:/app/assets
+      - ./.env:/app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OLLAMA_BASE_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    command: ["python", "scripts/scheduler.py"]
+    networks:
+      - story_network
+
+volumes:
+  n8n_data:
+  ollama_data:
+
+networks:
+  story_network:
+    driver: bridge

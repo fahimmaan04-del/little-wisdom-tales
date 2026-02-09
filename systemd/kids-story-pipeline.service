@@ -1,0 +1,32 @@
+[Unit]
+Description=Kids Story Channel - Automated Pipeline
+Documentation=file:///mnt/projects/youtube/SETUP_GUIDE.md
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu-22
+Group=ubuntu-22
+WorkingDirectory=/mnt/projects/youtube
+ExecStart=/mnt/projects/youtube/start_pipeline.sh
+Restart=always
+RestartSec=30
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+# Environment
+Environment=HOME=/home/ubuntu-22
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+# Logging
+StandardOutput=append:/mnt/projects/youtube/data/logs/service.log
+StandardError=append:/mnt/projects/youtube/data/logs/service-error.log
+
+# Resource limits
+LimitNOFILE=65536
+TimeoutStartSec=120
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

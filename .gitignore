@@ -1,0 +1,25 @@
+# Secrets
+.env
+*token*.json
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.py[cod]
+
+# Generated output
+output/
+data/
+*.db
+*.log
+
+# External services
+n8n_data/
+ollama_data/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+*.swp

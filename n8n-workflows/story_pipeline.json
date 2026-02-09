@@ -1,0 +1,85 @@
+{
+  "name": "Kids Story Channel - Daily Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "triggerAtHour": 6 },
+            { "triggerAtHour": 14 },
+            { "triggerAtHour": 22 }
+          ]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Story Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/node && python scripts/orchestrator.py single --no-upload 2>&1 || echo 'PIPELINE_ERROR'"
+      },
+      "id": "generate-story",
+      "name": "Generate Story Video",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/node && python scripts/orchestrator.py single --shorts --no-upload 2>&1 || echo 'PIPELINE_ERROR'"
+      },
+      "id": "generate-shorts",
+      "name": "Generate Shorts Video",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [500, 500]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "triggerAtHour": 4 }
+          ]
+        }
+      },
+      "id": "analytics-cron",
+      "name": "Analytics Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 700]
+    },
+    {
+      "parameters": {
+        "command": "cd /home/node && python scripts/orchestrator.py analytics 2>&1"
+      },
+      "id": "run-analytics",
+      "name": "Update Analytics",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [500, 700]
+    }
+  ],
+  "connections": {
+    "Story Schedule": {
+      "main": [
+        [
+          { "node": "Generate Story Video", "type": "main", "index": 0 },
+          { "node": "Generate Shorts Video", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Analytics Schedule": {
+      "main": [
+        [
+          { "node": "Update Analytics", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

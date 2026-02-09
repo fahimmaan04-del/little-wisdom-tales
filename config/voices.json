@@ -1,0 +1,168 @@
+{
+  "regions": {
+    "en-US": {
+      "narrator": {
+        "voice": "en-US-AnaNeural",
+        "rate": "-5%",
+        "pitch": "+50Hz",
+        "description": "Young, friendly narrator voice"
+      },
+      "characters": [
+        {
+          "name": "wise_elder",
+          "voice": "en-US-GuyNeural",
+          "rate": "-10%",
+          "pitch": "-20Hz",
+          "ffmpeg_pitch": 0.95
+        },
+        {
+          "name": "young_hero",
+          "voice": "en-US-AnaNeural",
+          "rate": "+0%",
+          "pitch": "+80Hz",
+          "ffmpeg_pitch": 1.15
+        },
+        {
+          "name": "funny_sidekick",
+          "voice": "en-US-AriaNeural",
+          "rate": "+10%",
+          "pitch": "+100Hz",
+          "ffmpeg_pitch": 1.25
+        },
+        {
+          "name": "villain",
+          "voice": "en-US-DavisNeural",
+          "rate": "-5%",
+          "pitch": "-50Hz",
+          "ffmpeg_pitch": 0.85
+        }
+      ]
+    },
+    "en-GB": {
+      "narrator": {
+        "voice": "en-GB-MaisieNeural",
+        "rate": "-5%",
+        "pitch": "+40Hz",
+        "description": "British child narrator"
+      },
+      "characters": [
+        {
+          "name": "wise_elder",
+          "voice": "en-GB-RyanNeural",
+          "rate": "-10%",
+          "pitch": "-20Hz",
+          "ffmpeg_pitch": 0.95
+        },
+        {
+          "name": "young_hero",
+          "voice": "en-GB-MaisieNeural",
+          "rate": "+0%",
+          "pitch": "+60Hz",
+          "ffmpeg_pitch": 1.15
+        }
+      ]
+    },
+    "hi-IN": {
+      "narrator": {
+        "voice": "hi-IN-SwaraNeural",
+        "rate": "-5%",
+        "pitch": "+40Hz",
+        "description": "Hindi narrator for Indian stories"
+      },
+      "characters": [
+        {
+          "name": "wise_elder",
+          "voice": "hi-IN-MadhurNeural",
+          "rate": "-10%",
+          "pitch": "-20Hz",
+          "ffmpeg_pitch": 0.95
+        },
+        {
+          "name": "young_hero",
+          "voice": "hi-IN-SwaraNeural",
+          "rate": "+5%",
+          "pitch": "+80Hz",
+          "ffmpeg_pitch": 1.2
+        }
+      ]
+    },
+    "es-MX": {
+      "narrator": {
+        "voice": "es-MX-DaliaNeural",
+        "rate": "-5%",
+        "pitch": "+40Hz",
+        "description": "Spanish narrator for Latin American stories"
+      },
+      "characters": [
+        {
+          "name": "wise_elder",
+          "voice": "es-MX-JorgeNeural",
+          "rate": "-10%",
+          "pitch": "-20Hz",
+          "ffmpeg_pitch": 0.95
+        },
+        {
+          "name": "young_hero",
+          "voice": "es-MX-DaliaNeural",
+          "rate": "+5%",
+          "pitch": "+80Hz",
+          "ffmpeg_pitch": 1.2
+        }
+      ]
+    },
+    "ar-SA": {
+      "narrator": {
+        "voice": "ar-SA-ZariyahNeural",
+        "rate": "-5%",
+        "pitch": "+40Hz",
+        "description": "Arabic narrator for Middle Eastern stories"
+      },
+      "characters": [
+        {
+          "name": "wise_elder",
+          "voice": "ar-SA-HamedNeural",
+          "rate": "-10%",
+          "pitch": "-20Hz",
+          "ffmpeg_pitch": 0.95
+        },
+        {
+          "name": "young_hero",
+          "voice": "ar-SA-ZariyahNeural",
+          "rate": "+5%",
+          "pitch": "+80Hz",
+          "ffmpeg_pitch": 1.2
+        }
+      ]
+    },
+    "fr-FR": {
+      "narrator": {
+        "voice": "fr-FR-EloiseNeural",
+        "rate": "-5%",
+        "pitch": "+40Hz",
+        "description": "French narrator for European stories"
+      },
+      "characters": [
+        {
+          "name": "wise_elder",
+          "voice": "fr-FR-HenriNeural",
+          "rate": "-10%",
+          "pitch": "-20Hz",
+          "ffmpeg_pitch": 0.95
+        },
+        {
+          "name": "young_hero",
+          "voice": "fr-FR-EloiseNeural",
+          "rate": "+5%",
+          "pitch": "+80Hz",
+          "ffmpeg_pitch": 1.2
+        }
+      ]
+    }
+  },
+  "cartoon_effects": {
+    "pitch_shift_range": [0.8, 1.3],
+    "speed_variation": [0.9, 1.1],
+    "reverb_for_cave_scenes": true,
+    "echo_for_mountain_scenes": true
+  }
+}

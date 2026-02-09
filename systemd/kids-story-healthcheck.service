@@ -1,0 +1,10 @@
+[Unit]
+Description=Kids Story Channel - Health Check
+After=kids-story-pipeline.service
+
+[Service]
+Type=oneshot
+User=ubuntu-22
+WorkingDirectory=/mnt/projects/youtube
+ExecStart=/mnt/projects/youtube/healthcheck.sh
+Environment=HOME=/home/ubuntu-22

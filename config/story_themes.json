@@ -1,0 +1,152 @@
+{
+  "story_collections": {
+    "aesop_fables": {
+      "origin": "Ancient Greece",
+      "region": "en-US",
+      "age_range": "3-10",
+      "themes": ["honesty", "humility", "hard work", "kindness", "wisdom"],
+      "examples": [
+        "The Tortoise and the Hare",
+        "The Boy Who Cried Wolf",
+        "The Lion and the Mouse",
+        "The Fox and the Grapes",
+        "The Ant and the Grasshopper",
+        "The Crow and the Pitcher",
+        "The North Wind and the Sun",
+        "The Goose That Laid Golden Eggs"
+      ]
+    },
+    "panchatantra": {
+      "origin": "Ancient India",
+      "region": "hi-IN",
+      "age_range": "4-12",
+      "themes": ["cleverness", "friendship", "loyalty", "consequences", "wisdom"],
+      "examples": [
+        "The Monkey and the Crocodile",
+        "The Blue Jackal",
+        "The Loyal Mongoose",
+        "The Brahmin and the Goat",
+        "The Musical Donkey",
+        "The Tortoise and the Geese",
+        "The Crow and the Snake"
+      ]
+    },
+    "arabian_nights": {
+      "origin": "Middle East",
+      "region": "ar-SA",
+      "age_range": "5-12",
+      "themes": ["adventure", "wisdom", "justice", "generosity", "courage"],
+      "examples": [
+        "Ali Baba and the Forty Thieves (kid version)",
+        "The Magic Lamp (kid version)",
+        "The Fisherman and the Genie",
+        "Sinbad the Sailor (kid version)",
+        "The Merchant and the Parrot"
+      ]
+    },
+    "african_folktales": {
+      "origin": "Africa",
+      "region": "en-US",
+      "age_range": "3-10",
+      "themes": ["community", "respect", "nature", "sharing", "courage"],
+      "examples": [
+        "Anansi the Spider",
+        "The Elephant and the Rain",
+        "Why Mosquitoes Buzz in People's Ears",
+        "The Clever Tortoise",
+        "The Lion's Whisker",
+        "Mufaro's Beautiful Daughters"
+      ]
+    },
+    "brothers_grimm": {
+      "origin": "Germany",
+      "region": "en-US",
+      "age_range": "4-10",
+      "themes": ["kindness", "bravery", "consequences", "family", "perseverance"],
+      "examples": [
+        "The Golden Goose",
+        "The Elves and the Shoemaker",
+        "The Bremen Town Musicians",
+        "The Star Money",
+        "The Fisherman and His Wife"
+      ]
+    },
+    "japanese_folktales": {
+      "origin": "Japan",
+      "region": "en-US",
+      "age_range": "4-12",
+      "themes": ["honor", "patience", "kindness", "nature", "gratitude"],
+      "examples": [
+        "Momotaro the Peach Boy",
+        "The Crane Wife",
+        "Urashima Taro",
+        "The Bamboo Cutter",
+        "Kaguya-hime"
+      ]
+    },
+    "latin_american_tales": {
+      "origin": "Latin America",
+      "region": "es-MX",
+      "age_range": "4-10",
+      "themes": ["community", "nature", "cleverness", "respect", "family"],
+      "examples": [
+        "The Hungry Coyote",
+        "The Legend of the Hummingbird",
+        "Juan Bobo tales",
+        "The Rainbow Serpent",
+        "The Sun and the Moon"
+      ]
+    },
+    "french_fables": {
+      "origin": "France",
+      "region": "fr-FR",
+      "age_range": "4-10",
+      "themes": ["wisdom", "humility", "justice", "patience", "cleverness"],
+      "examples": [
+        "La Fontaine: The Grasshopper and the Ant",
+        "La Fontaine: The Fox and the Crow",
+        "La Fontaine: The Wolf and the Lamb",
+        "La Fontaine: The Hare and the Frogs"
+      ]
+    }
+  },
+  "moral_categories": [
+    "honesty",
+    "kindness",
+    "sharing",
+    "courage",
+    "patience",
+    "respect",
+    "friendship",
+    "hard work",
+    "gratitude",
+    "forgiveness",
+    "humility",
+    "perseverance",
+    "responsibility",
+    "empathy",
+    "generosity"
+  ],
+  "content_guidelines": {
+    "forbidden_themes": [
+      "violence",
+      "death (graphic)",
+      "horror",
+      "romance",
+      "discrimination",
+      "substance use"
+    ],
+    "required_elements": [
+      "clear moral lesson",
+      "age-appropriate language",
+      "positive resolution",
+      "educational value"
+    ],
+    "youtube_kids_compliance": {
+      "made_for_kids": true,
+      "no_external_links": true,
+      "no_call_to_action_for_kids": true,
+      "no_misleading_metadata": true
+    }
+  }
+}

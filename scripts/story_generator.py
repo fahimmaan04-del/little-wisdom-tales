@@ -81,16 +81,18 @@ IMPORTANT RULES:
 - Include suspense, surprises, and a twist before the moral
 - Keep language simple but engaging with vivid, colorful descriptions
 - No violence, scary content, or mature themes
-- Story should be 2-3 minutes when narrated (about 400-500 words)
+- Story should be 5-7 minutes when narrated (about 800-1200 words)
 - End with a clear, positive moral lesson that kids can remember
 - Each scene needs a DISTINCT, COLORFUL visual with different settings/characters/objects
 - Include dialogue between characters to make it lively (use character_speaking field)
+- Make the story LONGER and more detailed. Include more dialogue between characters, more description of settings, and more emotional moments.
+- Include at least 3 acts: Setup (5 scenes), Rising Action (8 scenes), Climax (5 scenes), Resolution (4 scenes), Moral (3 scenes)
 
 Return a JSON object with this EXACT structure (no markdown, just raw JSON):
 {{
   "title": "Story Title",
   "moral": "The moral lesson in one sentence",
-  "duration_estimate": "2-3 minutes",
+  "duration_estimate": "5-7 minutes",
   "thumbnail_description": "A vivid description for the thumbnail image",
   "scenes": [
     {{
@@ -114,7 +116,7 @@ Return a JSON object with this EXACT structure (no markdown, just raw JSON):
   "description": "A YouTube-friendly description of this video (2-3 sentences)"
 }}
 
-Create 10-15 scenes. Each scene should be 10-15 seconds of narration. Use SPECIFIC image_search_terms (3-5 keywords) that will find relevant cartoon illustrations.
+Create 20-25 scenes. Each scene should be 12-18 seconds of narration. Use SPECIFIC image_search_terms (3-5 keywords) that will find relevant cartoon illustrations.
 Return ONLY the JSON, no other text."""
 
 
@@ -135,7 +137,7 @@ def call_ollama(prompt: str, max_retries: int = 3) -> str:
                     "format": "json",
                     "options": {
                         "temperature": 0.7,
-                        "num_predict": 3000,
+                        "num_predict": 6000,
                     }
                 },
                 timeout=300.0,
@@ -164,7 +166,7 @@ def call_gemini(prompt: str) -> str:
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0.8,
-                "maxOutputTokens": 2048,
+                "maxOutputTokens": 8192,
             }
         },
         timeout=60.0,
@@ -234,7 +236,68 @@ Create ONLY 3-4 scenes. Keep total narration under 120 words.
 Return ONLY the JSON, no other text."""
 
 
-def generate_story_script(collection: str = None, story_hint: str = None, moral: str = None, for_shorts: bool = False) -> dict:
+def build_education_story_prompt(collection_name: str, story_hint: str, moral: str, region: str) -> str:
+    """Build the LLM prompt for educational story generation (5+ minutes)."""
+    return f"""You are an educational children's storyteller creating content for a YouTube kids channel.
+
+Generate a kid-friendly EDUCATIONAL story that teaches a concept through storytelling:
+- Collection: {collection_name}
+- Story idea: {story_hint}
+- Educational concept/moral: {moral}
+- Target region: {region}
+- Target age: 4-10 years old
+
+IMPORTANT RULES:
+- WRITE THE ENTIRE STORY IN ENGLISH ONLY - all narration, dialogue, title, moral must be in English
+- This is an EDUCATIONAL story - weave the lesson naturally into the narrative
+- Make the story EXCITING, MAGICAL, and FULL OF WONDER - kids should be glued to the screen!
+- Use expressive, animated narration with sound effects in words like "WHOOSH!", "SPLASH!", "WOW!"
+- Include moments where characters DISCOVER and LEARN something new
+- Use repetition of key educational concepts so kids remember them
+- Include questions to the viewer like "Can YOU count how many?" or "Do YOU know what happens next?"
+- Keep language simple but engaging with vivid, colorful descriptions
+- No violence, scary content, or mature themes
+- Story should be 5-7 minutes when narrated (about 800-1200 words)
+- End with a clear summary of what was learned and a positive moral lesson
+- Each scene needs a DISTINCT, COLORFUL visual with different settings/characters/objects
+- Include dialogue between characters to make it lively (use character_speaking field)
+- Make the story LONGER and more detailed. Include more dialogue between characters, more description of settings, and more emotional moments.
+- Include at least 3 acts: Setup (5 scenes), Rising Action (8 scenes), Climax (5 scenes), Resolution (4 scenes), Moral (3 scenes)
+
+Return a JSON object with this EXACT structure (no markdown, just raw JSON):
+{{
+  "title": "Story Title",
+  "moral": "The educational lesson and moral in one sentence",
+  "duration_estimate": "5-7 minutes",
+  "thumbnail_description": "A vivid description for the thumbnail image",
+  "educational_concept": "The main concept being taught (e.g. counting, sharing, colors, nature)",
+  "scenes": [
+    {{
+      "scene_number": 1,
+      "narration": "The narrator's text for this scene",
+      "visual_description": "What should be shown: e.g. 'A bright sunny classroom with colorful numbers on the wall'",
+      "image_search_terms": "cartoon classroom numbers colorful illustration kids",
+      "character_speaking": null,
+      "duration_seconds": 15
+    }},
+    {{
+      "scene_number": 2,
+      "narration": "Next part of the story with educational content woven in...",
+      "visual_description": "Description of the visual...",
+      "image_search_terms": "search terms for finding an image",
+      "character_speaking": "young_hero",
+      "duration_seconds": 15
+    }}
+  ],
+  "tags": ["kids story", "educational", "learning", "{moral}", "{collection_name}"],
+  "description": "A YouTube-friendly description of this educational video (2-3 sentences)"
+}}
+
+Create 20-25 scenes. Each scene should be 12-18 seconds of narration. Use SPECIFIC image_search_terms (3-5 keywords) that will find relevant cartoon illustrations.
+Return ONLY the JSON, no other text."""
+
+
+def generate_story_script(collection: str = None, story_hint: str = None, moral: str = None, for_shorts: bool = False, min_scenes: int = 20) -> dict:
     """Generate a complete story script ready for video production."""
     themes = load_story_themes()
     collections = themes["story_collections"]
@@ -312,6 +375,12 @@ def generate_story_script(collection: str = None, story_hint: str = None, moral:
     story_script["region"] = region
     story_script["age_range"] = coll_data["age_range"]
     story_script["generated_at"] = datetime.now().isoformat()
+
+    # Check if story meets minimum scene count
+    actual_scenes = len(story_script.get("scenes", []))
+    if actual_scenes < min_scenes:
+        story_script["needs_expansion"] = True
+        print(f"Warning: Story has {actual_scenes} scenes, below minimum of {min_scenes}. Marked for expansion.")
 
     # Save to database
     db = get_db()

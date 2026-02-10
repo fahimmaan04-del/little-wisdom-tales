@@ -1,0 +1,1064 @@
+{
+  "channel": {
+    "name": "Little Wisdom AI Lab",
+    "tagline": "Learn AI, Build Cool Stuff!",
+    "host_character": "Byte the Robot",
+    "host_description": "A friendly blue robot kid with glowing green eyes, antenna on head, and a tablet in hand",
+    "target_age": "8-14",
+    "made_for_kids": true
+  },
+  "categories": {
+    "ai_basics": {
+      "display_name": "What is AI? - Fun Basics",
+      "playlist_name": "AI Basics for Kids - What is Artificial Intelligence?",
+      "age_range": "8-14",
+      "difficulty": "beginner",
+      "icon": "brain",
+      "topics": [
+        {
+          "topic": "Introduction to AI",
+          "lessons": [
+            "What is Artificial Intelligence? - A Fun Introduction",
+            "How Does AI Learn? - Teaching Computers Like Puppies!",
+            "AI vs Human Brain - What's the Difference?",
+            "Types of AI - Smart Speakers, Self-Driving Cars, and More!",
+            "The History of AI - From Science Fiction to Real Life"
+          ]
+        },
+        {
+          "topic": "How Computers Think",
+          "lessons": [
+            "Binary Code - How Computers Talk in 0s and 1s",
+            "What is an Algorithm? - Recipes for Computers!",
+            "How Computers See Pictures - Pixels and Patterns",
+            "How Computers Understand Words - Teaching Machines to Read",
+            "What is a Neural Network? - Building a Computer Brain"
+          ]
+        },
+        {
+          "topic": "AI in Everyday Life",
+          "lessons": [
+            "AI in Your Phone - Siri, Google Assistant, and Friends",
+            "How Netflix and YouTube Know What You Like",
+            "AI in Video Games - How NPCs Think and React",
+            "Smart Home AI - How Alexa Controls Your Lights",
+            "AI That Helps Doctors - Finding Diseases in X-Rays"
+          ]
+        },
+        {
+          "topic": "Machine Learning for Kids",
+          "lessons": [
+            "What is Machine Learning? - Computers That Learn from Examples",
+            "Training vs Testing - How AI Practices and Takes Exams",
+            "Supervised Learning - Teaching AI with Labeled Examples",
+            "Unsupervised Learning - AI That Finds Patterns on Its Own",
+            "Reinforcement Learning - AI That Learns by Playing Games"
+          ]
+        },
+        {
+          "topic": "AI Ethics and Safety",
+          "lessons": [
+            "Is AI Always Right? - Understanding AI Mistakes",
+            "AI Fairness - Making Sure AI Treats Everyone Equally",
+            "Privacy and AI - What Data Should You Share?",
+            "Deepfakes Explained - How to Spot Fake AI Content",
+            "Being a Responsible AI Creator - Rules for Young Inventors"
+          ]
+        },
+        {
+          "topic": "Famous AI Breakthroughs",
+          "lessons": [
+            "AlphaGo - When AI Beat the World's Best Board Game Player",
+            "ChatGPT - How AI Learned to Have Conversations",
+            "DALL-E - The AI That Creates Art from Words",
+            "Boston Dynamics Robots - AI That Can Dance and Do Parkour",
+            "Self-Driving Cars - How Tesla AI Sees the Road"
+          ]
+        }
+      ]
+    },
+    "ai_art": {
+      "display_name": "AI Art Studio - Create Amazing Art",
+      "playlist_name": "AI Art Studio - Kids Create Amazing Art with AI",
+      "age_range": "8-14",
+      "difficulty": "beginner",
+      "icon": "palette",
+      "topics": [
+        {
+          "topic": "Getting Started with AI Art",
+          "lessons": [
+            "Your First AI Artwork - Using DALL-E to Create Magic",
+            "What is a Prompt? - The Secret Language of AI Art",
+            "Art Styles with AI - Cartoon, Pixel Art, Watercolor, and More!",
+            "Prompt Engineering 101 - Writing Better Instructions for AI",
+            "AI Art vs Human Art - Why Both Are Amazing"
+          ]
+        },
+        {
+          "topic": "DALL-E and Image Generators",
+          "lessons": [
+            "DALL-E Deep Dive - Creating Characters from Your Imagination",
+            "Building Fantasy Worlds - Landscapes and Environments with AI",
+            "Comic Book Art with AI - Create Your Own Superhero",
+            "AI Art Mashups - Combining Styles Like a Pro",
+            "From Sketch to Masterpiece - AI That Finishes Your Drawings"
+          ]
+        },
+        {
+          "topic": "Canva AI for Kids",
+          "lessons": [
+            "Canva AI Basics - Your Free Design Superpower",
+            "Making YouTube Thumbnails with Canva AI",
+            "Designing Posters and Flyers - AI-Powered Graphics",
+            "Canva Magic Write - AI That Helps You Write Text",
+            "Creating Presentations with Canva AI"
+          ]
+        },
+        {
+          "topic": "AI Animation Basics",
+          "lessons": [
+            "Animating Your AI Art - Making Pictures Move",
+            "AI-Powered Cartoon Characters - From Still to Alive",
+            "Creating GIFs with AI - Fun Looping Animations",
+            "Stop Motion with AI-Generated Frames",
+            "Your First AI Music Video - Art + Music Combined"
+          ]
+        },
+        {
+          "topic": "AI Art Projects",
+          "lessons": [
+            "Design Your Dream Bedroom with AI",
+            "Create an AI Art Gallery - Curate Your Own Exhibition",
+            "AI-Generated Stickers and Emojis for Your Friends",
+            "Making an AI Coloring Book - Generate and Print",
+            "AI Art Calendar - 12 Months of AI Masterpieces"
+          ]
+        },
+        {
+          "topic": "Advanced AI Art Techniques",
+          "lessons": [
+            "Inpainting - Editing Parts of an Image with AI",
+            "Style Transfer - Make Photos Look Like Famous Paintings",
+            "AI Upscaling - Making Tiny Images Super Sharp",
+            "Creating Consistent Characters Across Multiple Images",
+            "Building a Portfolio of Your Best AI Art"
+          ]
+        },
+        {
+          "topic": "AI Art for Social Media",
+          "lessons": [
+            "Creating Profile Pictures with AI Art",
+            "AI Memes - Funny Images That Go Viral",
+            "Designing T-Shirt Graphics with AI",
+            "AI Photo Filters - How Instagram and Snapchat Use AI",
+            "Starting Your Own AI Art Instagram Page"
+          ]
+        }
+      ]
+    },
+    "ai_games": {
+      "display_name": "AI Game Builder - Make Games with AI",
+      "playlist_name": "AI Game Builder - Kids Make Amazing Games",
+      "age_range": "9-14",
+      "difficulty": "intermediate",
+      "icon": "gamepad",
+      "topics": [
+        {
+          "topic": "AI in Video Games",
+          "lessons": [
+            "How AI Makes Video Games Fun - Enemy AI Explained",
+            "Pathfinding - How Game Characters Find Their Way",
+            "Game AI Decision Trees - Teaching NPCs to Think",
+            "Procedural Generation - AI That Builds Infinite Worlds",
+            "Difficulty Scaling - AI That Adapts to Your Skill Level"
+          ]
+        },
+        {
+          "topic": "Scratch Game AI",
+          "lessons": [
+            "Smart Enemies in Scratch - AI That Chases You!",
+            "Scratch Maze Solver - Teaching Sprites to Find the Exit",
+            "AI Rock-Paper-Scissors - A Computer That Predicts Your Moves",
+            "Flappy Bird AI in Scratch - Self-Playing Game",
+            "Scratch AI Tic-Tac-Toe - Unbeatable Computer Opponent"
+          ]
+        },
+        {
+          "topic": "Building AI-Powered Games",
+          "lessons": [
+            "Voice-Controlled Games - Play with Your Voice Using AI",
+            "Gesture-Controlled Games - Wave Your Hands to Play!",
+            "AI Dungeon Master - Games That Write Their Own Story",
+            "AI-Generated Game Assets - Characters and Backgrounds from AI",
+            "Machine Learning Game Bots - Teaching AI to Play Your Game"
+          ]
+        },
+        {
+          "topic": "Game Design with AI Tools",
+          "lessons": [
+            "Using ChatGPT to Design Game Levels and Puzzles",
+            "AI-Generated Pixel Art for Your Retro Game",
+            "Creating Game Sound Effects with AI",
+            "AI Story Writer for RPG Games and Adventures",
+            "Playtesting with AI - Finding Bugs Automatically"
+          ]
+        },
+        {
+          "topic": "Teachable Machine Games",
+          "lessons": [
+            "Google Teachable Machine - Train Your First AI Model!",
+            "Rock-Paper-Scissors with Your Webcam - AI Vision Game",
+            "Sound Recognition Game - AI That Hears What You Say",
+            "Pose Detection Game - AI That Sees Your Dance Moves",
+            "Combining Teachable Machine with Scratch for Super Games"
+          ]
+        },
+        {
+          "topic": "Multiplayer AI Games",
+          "lessons": [
+            "AI Opponents That Learn from You - Adaptive Difficulty",
+            "Cooperative AI - Computer Teammates That Help You Win",
+            "AI Referee - A Computer That Makes Fair Decisions",
+            "Chatbot NPCs - Characters That Talk Back to You",
+            "Building a Board Game with AI Strategy"
+          ]
+        },
+        {
+          "topic": "Advanced Game AI Projects",
+          "lessons": [
+            "Training an AI to Play Snake - Reinforcement Learning",
+            "AI Level Generator - Infinite Platformer Levels",
+            "Neural Network That Plays Pong - Your First Game AI",
+            "AI Music That Changes with Gameplay - Dynamic Soundtracks",
+            "Publishing Your AI Game - Share It with the World!"
+          ]
+        }
+      ]
+    },
+    "ai_apps": {
+      "display_name": "AI App Inventor - Build Smart Apps",
+      "playlist_name": "AI App Inventor - Kids Build Smart Apps",
+      "age_range": "10-14",
+      "difficulty": "intermediate",
+      "icon": "smartphone",
+      "topics": [
+        {
+          "topic": "Introduction to App Building",
+          "lessons": [
+            "What is an App? - From Idea to Your Phone",
+            "MIT App Inventor Basics - Your Free App Workshop",
+            "Your First App in 10 Minutes - Hello World!",
+            "Adding AI to Apps - Making Your Apps Smart",
+            "App Design 101 - Making Apps That Look Great"
+          ]
+        },
+        {
+          "topic": "AI-Powered App Ideas",
+          "lessons": [
+            "Build a Language Translator App with AI",
+            "AI Photo Filter App - Cartoon Yourself!",
+            "Smart To-Do List App - AI That Prioritizes Tasks",
+            "AI Weather App - Predictions with Machine Learning",
+            "Build a Plant Identifier - Point Your Camera and Learn!"
+          ]
+        },
+        {
+          "topic": "Voice and Chat Apps",
+          "lessons": [
+            "Speech-to-Text App - AI That Types What You Say",
+            "Text-to-Speech App - Make Your Phone Read Stories",
+            "Build a Simple Chatbot App from Scratch",
+            "Voice Command App - Control Your Phone with Words",
+            "AI Diary App - A Journal That Talks Back"
+          ]
+        },
+        {
+          "topic": "Camera and Vision Apps",
+          "lessons": [
+            "AI Color Detector - Point and Identify Any Color",
+            "Object Recognition App - AI That Names What It Sees",
+            "AI Math Solver - Scan a Problem, Get the Answer",
+            "Face Filter App - How Snapchat Filters Actually Work",
+            "Build an AI Art Scanner - Identify Famous Paintings"
+          ]
+        },
+        {
+          "topic": "Utility Apps with AI",
+          "lessons": [
+            "AI Homework Helper - Smart Study Companion App",
+            "AI Expense Tracker - Smart Money Manager for Kids",
+            "AI Quiz Generator - App That Creates Tests from Notes",
+            "Smart Alarm Clock - AI That Picks the Best Wake-Up Time",
+            "AI Recipe Finder - What Can I Cook with These Ingredients?"
+          ]
+        },
+        {
+          "topic": "App Publishing and Sharing",
+          "lessons": [
+            "Testing Your App - Finding and Fixing Bugs",
+            "Getting Feedback - How to Improve Your App",
+            "App Icons and Splash Screens - First Impressions Matter",
+            "Sharing Your App with Friends and Family",
+            "From App Inventor to Real App Store - Next Steps"
+          ]
+        },
+        {
+          "topic": "Advanced App Projects",
+          "lessons": [
+            "Build a Fitness Tracker with AI Step Detection",
+            "AI Music Recommender App - Your Personal DJ",
+            "Augmented Reality App - AI Objects in the Real World",
+            "Multi-Screen Apps - Complex Navigation with AI",
+            "Building an AI-Powered Social App for Your School"
+          ]
+        }
+      ]
+    },
+    "ai_music": {
+      "display_name": "AI Music Lab - Create Music with AI",
+      "playlist_name": "AI Music Lab - Kids Create Music with AI",
+      "age_range": "8-14",
+      "difficulty": "beginner",
+      "icon": "music",
+      "topics": [
+        {
+          "topic": "How AI Makes Music",
+          "lessons": [
+            "What is AI Music? - Computers That Compose Songs",
+            "How AI Learns Music - Patterns, Beats, and Melodies",
+            "Famous AI Music - Songs Created by Computers",
+            "AI vs Human Musicians - Can You Tell the Difference?",
+            "The Science of Sound - How Computers Hear Music"
+          ]
+        },
+        {
+          "topic": "Making Music with AI Tools",
+          "lessons": [
+            "Chrome Music Lab - Your Free AI Music Playground",
+            "Soundraw - Generate Background Music in Seconds",
+            "AIVA - AI That Composes Classical Music",
+            "Boomy - Create and Release Your Own AI Song",
+            "Amper Music - Custom Soundtracks for Your Videos"
+          ]
+        },
+        {
+          "topic": "AI Beat Making",
+          "lessons": [
+            "AI Drum Patterns - Creating Beats That Slap",
+            "Melody Generator - AI That Hums Your Next Hit",
+            "AI Bass Lines - The Groove Machine",
+            "Mixing AI Beats - Layering Sounds Like a DJ",
+            "Creating a Full AI Song - Drums + Melody + Bass"
+          ]
+        },
+        {
+          "topic": "AI Music for Videos",
+          "lessons": [
+            "Background Music for YouTube Videos with AI",
+            "Creating Intro Music for Your Channel",
+            "Sound Effects with AI - Explosions, Nature, and More",
+            "Matching Music to Mood - Happy, Sad, Exciting AI Tracks",
+            "Royalty-Free AI Music - Use It Anywhere!"
+          ]
+        },
+        {
+          "topic": "AI Music Projects",
+          "lessons": [
+            "Remix a Famous Song with AI Assistance",
+            "Create a Podcast Intro with AI Music",
+            "AI-Generated Ringtones for Your Phone",
+            "Build a Virtual AI Band - Each AI Plays an Instrument",
+            "Record and Enhance Your Voice with AI"
+          ]
+        },
+        {
+          "topic": "Music Theory with AI",
+          "lessons": [
+            "Chords and Scales - AI Helps You Understand Harmony",
+            "Rhythm Patterns - AI Teaches You to Keep the Beat",
+            "Song Structure - How AI Knows Verse, Chorus, Bridge",
+            "Key Signatures - AI Makes Music Theory Visual",
+            "Ear Training - Can You Hear What AI Hears?"
+          ]
+        },
+        {
+          "topic": "Advanced AI Music",
+          "lessons": [
+            "AI Voice Cloning - How It Works (Responsibly!)",
+            "Stem Separation - AI That Isolates Instruments",
+            "AI Mastering - Making Your Music Sound Professional",
+            "Creating AI Music with Python Code",
+            "The Future of AI Music - What Comes Next?"
+          ]
+        }
+      ]
+    },
+    "ai_stories": {
+      "display_name": "AI Story Studio - Write and Animate",
+      "playlist_name": "AI Story Studio - Kids Write and Animate with AI",
+      "age_range": "8-14",
+      "difficulty": "beginner",
+      "icon": "book",
+      "topics": [
+        {
+          "topic": "AI Story Writing Basics",
+          "lessons": [
+            "Writing Stories with ChatGPT - Your AI Co-Author",
+            "Prompt Crafting - How to Give AI Great Story Ideas",
+            "Character Creation with AI - Heroes, Villains, and Sidekicks",
+            "World Building - AI Helps You Design Fantasy Worlds",
+            "Plot Twists and Surprises - AI-Powered Story Structures"
+          ]
+        },
+        {
+          "topic": "Interactive Stories",
+          "lessons": [
+            "Choose Your Own Adventure - AI That Branches the Story",
+            "AI Storytelling Game - Roll the Dice, AI Writes the Scene",
+            "Collaborative Writing - You and AI Take Turns",
+            "Mystery Stories - AI Clues and Whodunit Endings",
+            "Time Travel Stories - AI Explores Different Timelines"
+          ]
+        },
+        {
+          "topic": "AI Comic Creation",
+          "lessons": [
+            "AI Comic Strips - Write and Illustrate in Minutes",
+            "Panel Layout with AI - Designing Comic Book Pages",
+            "Speech Bubbles and Captions - AI Text for Comics",
+            "Creating a Comic Series - Consistent Characters and Style",
+            "Publishing Your AI Comic Online"
+          ]
+        },
+        {
+          "topic": "AI Animation and Cartoons",
+          "lessons": [
+            "Making Animated Shorts with AI Tools",
+            "Character Animation - AI That Makes Drawings Walk and Talk",
+            "Background Generation - AI Scenery for Your Cartoons",
+            "Adding Voice Acting with AI Text-to-Speech",
+            "Storyboarding with AI - Planning Your Animation"
+          ]
+        },
+        {
+          "topic": "AI Video Creation",
+          "lessons": [
+            "AI Video Scripts - From Idea to Full Script in Minutes",
+            "AI Narration - Adding Professional Voiceovers",
+            "Subtitle and Caption Generation with AI",
+            "AI Video Editing Tips - Smart Cuts and Transitions",
+            "Publishing Your AI Video on YouTube"
+          ]
+        },
+        {
+          "topic": "Poetry and Songwriting with AI",
+          "lessons": [
+            "AI Poetry - Haiku, Limerick, and Rhyming Poems",
+            "Song Lyrics with AI - Write Your Next Hit Song",
+            "AI Rap Generator - Bars and Rhymes on Demand",
+            "Greeting Cards with AI - Personalized Messages",
+            "AI Mad Libs - Hilarious Fill-in-the-Blank Stories"
+          ]
+        },
+        {
+          "topic": "Advanced Story Projects",
+          "lessons": [
+            "Write a Full Children's Book with AI",
+            "Create an Audiobook with AI Voice and Music",
+            "AI Screenplay - Write a Short Film Script",
+            "Build a Story App - Interactive Fiction with AI",
+            "Entering AI Story Contests - Show Off Your Skills"
+          ]
+        }
+      ]
+    },
+    "ai_robots": {
+      "display_name": "AI Robots - Build and Code Robots",
+      "playlist_name": "AI Robots - Kids Build and Code Smart Robots",
+      "age_range": "9-14",
+      "difficulty": "intermediate",
+      "icon": "robot",
+      "topics": [
+        {
+          "topic": "Introduction to Robots",
+          "lessons": [
+            "What is a Robot? - From Factory Arms to Humanoids",
+            "Sensors and Motors - How Robots See and Move",
+            "The Robot Brain - Microcontrollers and Computers",
+            "Famous Robots - From Roomba to Mars Rovers",
+            "AI + Robots = Smart Machines That Learn"
+          ]
+        },
+        {
+          "topic": "Virtual Robot Programming",
+          "lessons": [
+            "Robot Simulator - Code Robots Without Hardware",
+            "Scratch Robots - Programming Virtual Bots",
+            "Maze-Solving Robots - AI Navigation Challenge",
+            "Robot Dance Party - Programming Movement Sequences",
+            "Virtual Sumo Robots - AI Fighting Tournament"
+          ]
+        },
+        {
+          "topic": "Real Robot Projects",
+          "lessons": [
+            "Arduino Basics for Robot Building",
+            "Building a Line-Following Robot with AI",
+            "Obstacle-Avoiding Robot - Sensors and AI Decisions",
+            "Robotic Arm - Pick and Place with Computer Vision",
+            "Building a Mini Self-Driving Car"
+          ]
+        },
+        {
+          "topic": "Computer Vision for Robots",
+          "lessons": [
+            "Teaching Robots to See - Camera + AI Basics",
+            "Color Tracking - Robots That Follow Objects",
+            "Face Detection - Robots That Recognize People",
+            "QR Code Reader Robot - Scan and React",
+            "Object Sorting Robot - AI That Classifies and Picks"
+          ]
+        },
+        {
+          "topic": "Robot Communication",
+          "lessons": [
+            "Talking Robots - Adding Speech to Your Robot",
+            "Voice-Controlled Robots - Command with Words",
+            "Robot Swarms - Multiple Robots Working Together",
+            "Remote Control via App - Phone-Controlled Robots",
+            "IoT Robots - Robots Connected to the Internet"
+          ]
+        },
+        {
+          "topic": "Robot Competitions",
+          "lessons": [
+            "FIRST Robotics - Join a Competition Team!",
+            "Robot Soccer - AI Teams That Play Together",
+            "Drone Racing - AI-Assisted Flying Machines",
+            "Robot Art Contest - Creative Machines",
+            "Preparing for Robot Competitions - Tips and Tricks"
+          ]
+        },
+        {
+          "topic": "Future of Robotics",
+          "lessons": [
+            "Humanoid Robots - Will Robots Look Like Us?",
+            "Soft Robots - Squishy Machines Inspired by Nature",
+            "Space Robots - AI Exploring Other Planets",
+            "Medical Robots - AI That Helps in Surgery",
+            "Your Future Career in Robotics - Getting Started Now"
+          ]
+        }
+      ]
+    },
+    "ai_chatbots": {
+      "display_name": "AI Chatbots - Build Talking AI",
+      "playlist_name": "AI Chatbots - Kids Build Talking AI Assistants",
+      "age_range": "10-14",
+      "difficulty": "intermediate",
+      "icon": "chat",
+      "topics": [
+        {
+          "topic": "How Chatbots Work",
+          "lessons": [
+            "What is a Chatbot? - AI That Talks Like a Person",
+            "Rule-Based vs AI Chatbots - Simple vs Smart",
+            "How ChatGPT Works - The Magic Behind AI Conversations",
+            "Natural Language Processing - How AI Understands Words",
+            "Chatbot Personalities - Making AI Sound Friendly or Funny"
+          ]
+        },
+        {
+          "topic": "Build Your First Chatbot",
+          "lessons": [
+            "Simple Chatbot in Scratch - If-Then Conversations",
+            "Keyword Chatbot - AI That Listens for Special Words",
+            "Menu Chatbot - Button-Based Conversations",
+            "Chatbot with Memory - AI That Remembers Your Name",
+            "Adding Humor - Making Your Chatbot Tell Jokes"
+          ]
+        },
+        {
+          "topic": "Smart Chatbot Features",
+          "lessons": [
+            "Sentiment Analysis - Chatbot That Detects Your Mood",
+            "Multi-Language Chatbot - AI That Speaks Many Languages",
+            "Image-Understanding Chatbot - Send a Photo, Get a Response",
+            "Voice Chatbot - Talk and Listen with AI",
+            "Context-Aware Chatbot - AI That Follows the Conversation"
+          ]
+        },
+        {
+          "topic": "Chatbot Projects",
+          "lessons": [
+            "Build a Homework Helper Chatbot",
+            "AI Quiz Master - Chatbot That Tests Your Knowledge",
+            "Story-Telling Chatbot - AI Bedtime Story Generator",
+            "Virtual Pet Chatbot - Feed and Play with AI",
+            "Customer Service Bot - Help Desk for Your Lemonade Stand"
+          ]
+        },
+        {
+          "topic": "Chatbot Platforms",
+          "lessons": [
+            "Tidio and Chatfuel - No-Code Chatbot Builders",
+            "Discord Bots - AI for Your Gaming Server",
+            "Telegram Bots - Building Chatbots for Messaging",
+            "Website Chatbots - AI Help on Any Web Page",
+            "Connecting Chatbots to APIs - Super-Powered Conversations"
+          ]
+        },
+        {
+          "topic": "Advanced Chatbot Concepts",
+          "lessons": [
+            "Training Your Own Chatbot - Custom AI Responses",
+            "Chatbot Ethics - Responsible AI Conversations",
+            "Handling Errors Gracefully - When AI Gets Confused",
+            "A/B Testing Chatbots - Finding the Best Responses",
+            "The Future of Chatbots - What AI Assistants Will Become"
+          ]
+        }
+      ]
+    },
+    "ai_projects": {
+      "display_name": "AI Project Lab - Hands-On Builds",
+      "playlist_name": "AI Project Lab - Hands-On AI Projects for Kids",
+      "age_range": "8-14",
+      "difficulty": "mixed",
+      "icon": "wrench",
+      "topics": [
+        {
+          "topic": "Weekend AI Projects (Beginner)",
+          "lessons": [
+            "AI Photo Booth - Silly Filters and Effects in 20 Minutes",
+            "AI Name Generator - Invent Fantasy Character Names",
+            "AI Trivia Game - Build and Play in One Hour",
+            "AI Meme Generator - Create Viral Images with AI",
+            "AI Fortune Teller - A Fun Prediction Machine"
+          ]
+        },
+        {
+          "topic": "Creative AI Projects",
+          "lessons": [
+            "AI Fashion Designer - Design Outfits with DALL-E",
+            "AI Interior Decorator - Redesign Your Room Virtually",
+            "AI Logo Maker - Design a Brand for Your School Club",
+            "AI Recipe Inventor - Crazy Food Combinations That Work",
+            "AI Holiday Card Generator - Personalized Cards for Everyone"
+          ]
+        },
+        {
+          "topic": "Science AI Projects",
+          "lessons": [
+            "AI Bird Identifier - Camera App That Names Birds",
+            "AI Weather Predictor - Your Own Forecast Model",
+            "AI Star Map - Identify Constellations with Your Phone",
+            "AI Plant Doctor - Diagnose Sick Plants from Photos",
+            "AI Ocean Explorer - Classify Sea Creatures with Vision AI"
+          ]
+        },
+        {
+          "topic": "School AI Projects",
+          "lessons": [
+            "AI Presentation Maker - Slides in Minutes",
+            "AI Study Flashcards - Auto-Generated Review Cards",
+            "AI Essay Outliner - Structure Your Writing with AI Help",
+            "AI Math Tutor - Step-by-Step Problem Solving",
+            "AI Science Fair Project - Impress the Judges!"
+          ]
+        },
+        {
+          "topic": "Social Good AI Projects",
+          "lessons": [
+            "AI Recycling Sorter - Computer Vision for the Environment",
+            "AI Language Tutor - Help Others Learn New Languages",
+            "AI Accessibility Tool - Helping People with Disabilities",
+            "AI Anti-Bullying Bot - Creating Safer Online Spaces",
+            "AI Community Helper - Solving Local Problems with Tech"
+          ]
+        },
+        {
+          "topic": "Advanced Multi-Week Projects",
+          "lessons": [
+            "Build a Complete AI Website from Scratch",
+            "Create Your Own AI YouTube Channel Pipeline",
+            "AI-Powered Mobile Game - From Idea to Published",
+            "Machine Learning Science Experiment - Full Report",
+            "AI Startup Pitch - Design, Build, and Present Your AI Product"
+          ]
+        },
+        {
+          "topic": "AI Competition Prep",
+          "lessons": [
+            "Google Science Fair - AI Project Ideas That Win",
+            "AI4ALL - Getting Into AI Summer Programs",
+            "Technovation Challenge - AI Apps for Social Good",
+            "Kaggle for Kids - Your First Data Science Competition",
+            "Building Your AI Portfolio - Show Colleges What You Can Do"
+          ]
+        }
+      ]
+    },
+    "ai_future": {
+      "display_name": "AI and the Future - What's Next?",
+      "playlist_name": "AI and the Future - Amazing Technology Coming Soon",
+      "age_range": "8-14",
+      "difficulty": "beginner",
+      "icon": "rocket",
+      "topics": [
+        {
+          "topic": "AI Jobs of the Future",
+          "lessons": [
+            "Jobs That AI Will Create - Exciting New Careers",
+            "AI Engineer - What Do They Do All Day?",
+            "Data Scientist - The Detectives of the Digital World",
+            "AI Ethics Officer - Making Sure AI is Fair",
+            "Robotics Engineer - Building the Machines of Tomorrow"
+          ]
+        },
+        {
+          "topic": "AI in Space",
+          "lessons": [
+            "Mars Rovers - AI Exploring the Red Planet",
+            "AI Telescopes - Finding New Planets with Machine Learning",
+            "Space Station AI - Robots That Help Astronauts",
+            "AI Mission Control - Computers That Guide Rockets",
+            "Searching for Alien Life - AI Scans the Universe"
+          ]
+        },
+        {
+          "topic": "AI in Healthcare",
+          "lessons": [
+            "AI Doctors - Computers That Diagnose Diseases",
+            "Robot Surgery - Machines with Steady Hands",
+            "AI Drug Discovery - Finding New Medicines Faster",
+            "Wearable AI - Smartwatches That Monitor Your Health",
+            "Brain-Computer Interfaces - AI That Reads Your Mind"
+          ]
+        },
+        {
+          "topic": "AI and Transportation",
+          "lessons": [
+            "Self-Driving Cars Deep Dive - How They Really Work",
+            "Flying Taxis - AI-Powered Air Travel for Everyone",
+            "Hyperloop and AI - Super-Fast Train Technology",
+            "Delivery Drones - AI Brings Packages to Your Door",
+            "AI Traffic Control - No More Traffic Jams!"
+          ]
+        },
+        {
+          "topic": "AI and the Environment",
+          "lessons": [
+            "AI Fighting Climate Change - Smart Solutions for Earth",
+            "AI for Wildlife Protection - Tracking Endangered Animals",
+            "Smart Farming with AI - Growing More Food with Less",
+            "AI Ocean Cleanup - Robots That Clean the Seas",
+            "Renewable Energy AI - Smart Power Grids"
+          ]
+        },
+        {
+          "topic": "AI in Entertainment",
+          "lessons": [
+            "AI in Movies - Visual Effects and Digital Actors",
+            "AI in Music - The Next Hit Song by a Computer?",
+            "Virtual Reality + AI - Worlds That Respond to You",
+            "AI Sports Analytics - How AI Helps Teams Win",
+            "The Metaverse - AI-Powered Virtual Worlds"
+          ]
+        },
+        {
+          "topic": "Preparing for an AI World",
+          "lessons": [
+            "Skills You Need for the AI Era - What to Learn Now",
+            "AI Won't Replace You - But Someone Using AI Might!",
+            "Starting Your AI Journey - Resources and Communities",
+            "Famous Kid Inventors Who Used AI and Tech",
+            "Your AI Future - Dream Big, Start Small, Build Now!"
+          ]
+        }
+      ]
+    },
+    "scratch_ai": {
+      "display_name": "Scratch + AI - Code Smart Projects",
+      "playlist_name": "Scratch + AI - Kids Code Smart Projects",
+      "age_range": "8-12",
+      "difficulty": "beginner",
+      "icon": "puzzle",
+      "topics": [
+        {
+          "topic": "Scratch Basics Refresher",
+          "lessons": [
+            "Welcome to Scratch - Your AI Coding Playground",
+            "Sprites, Costumes, and Backdrops - The Building Blocks",
+            "Variables and Lists - Teaching Scratch to Remember",
+            "Broadcast Messages - Sprites That Talk to Each Other",
+            "Cloning and Loops - Making Lots of Things Happen"
+          ]
+        },
+        {
+          "topic": "AI Concepts in Scratch",
+          "lessons": [
+            "If-Then Logic - The Foundation of All AI",
+            "Random vs Smart Decisions - Adding Intelligence",
+            "Pattern Recognition in Scratch - Sorting and Matching",
+            "Simple Neural Network Visualization in Scratch",
+            "Training Data - Teaching Your Scratch AI with Examples"
+          ]
+        },
+        {
+          "topic": "Machine Learning with Scratch",
+          "lessons": [
+            "Machine Learning for Kids (ML4Kids) - Connect AI to Scratch!",
+            "Image Recognition in Scratch - AI That Sees Your Drawings",
+            "Text Classification - Scratch AI That Understands Words",
+            "Number Prediction - AI That Guesses Your Next Move",
+            "Sound Recognition - Scratch AI That Hears You"
+          ]
+        },
+        {
+          "topic": "AI Game Projects in Scratch",
+          "lessons": [
+            "AI Pet Simulator - A Virtual Pet That Learns Your Habits",
+            "Smart Platformer - Enemies That Get Harder Over Time",
+            "AI Art Generator in Scratch - Random But Beautiful",
+            "Chatbot in Scratch - Type and Get Smart Replies",
+            "AI Music Maker - Scratch Composes Melodies"
+          ]
+        },
+        {
+          "topic": "Scratch + Teachable Machine",
+          "lessons": [
+            "Connecting Teachable Machine to Scratch",
+            "Hand Gesture Controller - Wave to Move Your Sprite",
+            "Face Expression Game - Smile to Score Points!",
+            "Object Detector - Hold Up Items to Trigger Events",
+            "Building a Full AI Game with Teachable Machine + Scratch"
+          ]
+        },
+        {
+          "topic": "Advanced Scratch AI Projects",
+          "lessons": [
+            "Self-Driving Car Simulation in Scratch",
+            "Genetic Algorithm - Sprites That Evolve to Solve Mazes",
+            "AI Recommendation System - Suggest Games Based on Preferences",
+            "Scratch AI Art Gallery - Generate and Display Artwork",
+            "Publish Your AI Scratch Project - Share with the Community"
+          ]
+        }
+      ]
+    },
+    "python_kids": {
+      "display_name": "Python for AI Kids - Code the Future",
+      "playlist_name": "Python for AI Kids - Learn to Code the Future",
+      "age_range": "10-14",
+      "difficulty": "intermediate",
+      "icon": "code",
+      "topics": [
+        {
+          "topic": "Python Basics for AI",
+          "lessons": [
+            "Hello World! - Your First Python Program",
+            "Variables and Data Types - Storing Information Like AI",
+            "If-Else Decisions - Teaching Python to Choose",
+            "Loops - Repeating Actions Like a Robot",
+            "Functions - Creating Reusable AI Commands"
+          ]
+        },
+        {
+          "topic": "Python Data Skills",
+          "lessons": [
+            "Lists and Dictionaries - Organizing Data for AI",
+            "Reading Files - Feeding Data to Your Programs",
+            "Math with Python - Calculations AI Needs",
+            "String Magic - How AI Processes Text",
+            "Libraries and Imports - Python's AI Superpowers"
+          ]
+        },
+        {
+          "topic": "Python AI Libraries",
+          "lessons": [
+            "What is pip? - Installing AI Tools in Seconds",
+            "Turtle Graphics - Drawing with Python Code",
+            "Pygame Basics - Making Games with Python",
+            "Requests Library - Getting Data from the Internet",
+            "JSON and APIs - How AI Talks to Other Services"
+          ]
+        },
+        {
+          "topic": "Simple AI with Python",
+          "lessons": [
+            "Number Guessing Game - AI That Narrows Down Answers",
+            "Word Counter - Your First Text Analysis Program",
+            "Simple Chatbot in Python - Input, Process, Respond",
+            "Password Generator - AI-Style Random Security",
+            "Sentiment Detector - Is This Message Happy or Sad?"
+          ]
+        },
+        {
+          "topic": "Machine Learning with Python",
+          "lessons": [
+            "What is scikit-learn? - ML Made Simple",
+            "Your First ML Model - Predicting Flower Types",
+            "Training and Testing - How ML Models Practice",
+            "Decision Trees - AI That Asks Yes/No Questions",
+            "Visualizing Data - Charts and Graphs with Matplotlib"
+          ]
+        },
+        {
+          "topic": "Python AI Projects",
+          "lessons": [
+            "Build a Spam Detector - AI Email Filter",
+            "Image Classifier - Is It a Cat or Dog?",
+            "Web Scraper - Collecting Data Like a Pro",
+            "AI Tic-Tac-Toe - Unbeatable Python Game",
+            "Your Own AI Assistant - Putting It All Together"
+          ]
+        },
+        {
+          "topic": "Beyond Basics",
+          "lessons": [
+            "Object-Oriented Python - Classes for AI",
+            "Error Handling - Making Your Code Bulletproof",
+            "Virtual Environments - Keeping Projects Organized",
+            "Git Basics - Saving Your Code Like a Pro Developer",
+            "Next Steps - Your Python AI Learning Roadmap"
+          ]
+        }
+      ]
+    }
+  },
+  "content_guidelines": {
+    "forbidden_themes": [
+      "violence",
+      "horror",
+      "gambling",
+      "hacking (malicious)",
+      "personal data collection from minors",
+      "cryptocurrency",
+      "political content",
+      "mature themes"
+    ],
+    "required_elements": [
+      "clear learning objective per lesson",
+      "hands-on project or activity",
+      "age-appropriate explanations",
+      "positive and encouraging tone",
+      "safety reminders for online tools",
+      "Try It Yourself challenge",
+      "What We Learned Today recap"
+    ],
+    "youtube_kids_compliance": {
+      "made_for_kids": true,
+      "no_external_links_in_description": true,
+      "no_commercial_call_to_action": true,
+      "no_misleading_metadata": true,
+      "parental_guidance_notes": true
+    },
+    "ai_tool_safety": {
+      "always_mention_parental_supervision": true,
+      "use_free_kid_safe_tools_only": true,
+      "no_account_creation_without_parent": true,
+      "explain_data_privacy_simply": true
+    }
+  },
+  "approved_tools": [
+    {
+      "name": "Scratch",
+      "url": "scratch.mit.edu",
+      "age": "8+",
+      "free": true,
+      "category": "coding"
+    },
+    {
+      "name": "Google Teachable Machine",
+      "url": "teachablemachine.withgoogle.com",
+      "age": "8+",
+      "free": true,
+      "category": "machine_learning"
+    },
+    {
+      "name": "MIT App Inventor",
+      "url": "appinventor.mit.edu",
+      "age": "10+",
+      "free": true,
+      "category": "app_development"
+    },
+    {
+      "name": "Python",
+      "url": "python.org",
+      "age": "10+",
+      "free": true,
+      "category": "coding"
+    },
+    {
+      "name": "Canva",
+      "url": "canva.com",
+      "age": "8+",
+      "free": true,
+      "category": "design"
+    },
+    {
+      "name": "Chrome Music Lab",
+      "url": "musiclab.chromeexperiments.com",
+      "age": "8+",
+      "free": true,
+      "category": "music"
+    },
+    {
+      "name": "ChatGPT",
+      "url": "chat.openai.com",
+      "age": "13+ (with parent)",
+      "free": true,
+      "category": "ai_assistant"
+    },
+    {
+      "name": "DALL-E",
+      "url": "openai.com/dall-e",
+      "age": "13+ (with parent)",
+      "free": true,
+      "category": "ai_art"
+    },
+    {
+      "name": "Machine Learning for Kids",
+      "url": "machinelearningforkids.co.uk",
+      "age": "8+",
+      "free": true,
+      "category": "machine_learning"
+    },
+    {
+      "name": "Pygame",
+      "url": "pygame.org",
+      "age": "10+",
+      "free": true,
+      "category": "game_development"
+    },
+    {
+      "name": "Boomy",
+      "url": "boomy.com",
+      "age": "10+",
+      "free": true,
+      "category": "music"
+    },
+    {
+      "name": "Soundraw",
+      "url": "soundraw.io",
+      "age": "10+",
+      "free": true,
+      "category": "music"
+    }
+  ],
+  "playlist_order": [
+    "ai_basics",
+    "scratch_ai",
+    "ai_art",
+    "ai_stories",
+    "ai_music",
+    "ai_games",
+    "ai_chatbots",
+    "ai_apps",
+    "python_kids",
+    "ai_projects",
+    "ai_robots",
+    "ai_future"
+  ]
+}

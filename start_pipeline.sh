@@ -1,66 +1,51 @@
 #!/bin/bash
-# ============================================================
-# Kids Story Channel - Pipeline Startup Script
-# ============================================================
-# This script ensures all services are running and starts
-# the scheduler. Designed to be called by systemd on boot.
-# ============================================================
+# Little Wisdom Tales - Fully Autonomous Multi-Channel Pipeline
+# Runs 24/7 generating videos across 18 YouTube channels
+# Content: Stories (6 langs) + Education (Oxford/Cambridge) + AI Education
+#
+# Usage:
+#   ./start_pipeline.sh              # Default: batch mode via scheduler
+#   ./start_pipeline.sh batch        # Batch mode (phased generation)
+#   ./start_pipeline.sh incremental  # Incremental (one-at-a-time)
+#   ./start_pipeline.sh status       # Show pipeline status
 
 set -euo pipefail
 
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
-cd "$PROJECT_DIR"
+cd /mnt/projects/youtube
+source venv/bin/activate
 
-LOG_DIR="$PROJECT_DIR/data/logs"
-mkdir -p "$LOG_DIR"
-
-log() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_DIR/startup.log"
-}
-
-log "============================================"
-log "  Pipeline Startup Script"
-log "============================================"
-
-# --- Step 1: Ensure Ollama is running ---
-log "Checking Ollama..."
-if ! pgrep -x "ollama" > /dev/null 2>&1; then
-    log "Starting Ollama..."
-    ollama serve &
-    sleep 5
+# Load environment
+if [ -f .env ]; then
+    set -a
+    source .env
+    set +a
 fi
 
-# Wait for Ollama to be ready (max 60 seconds)
-for i in $(seq 1 12); do
-    if curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
-        log "Ollama is ready."
-        break
-    fi
-    log "Waiting for Ollama... ($i/12)"
-    sleep 5
-done
+MODE="${1:-batch}"
 
-# Verify model is available
-if ! ollama list 2>/dev/null | grep -q "llama3.2:3b"; then
-    log "Pulling llama3.2:3b model..."
-    ollama pull llama3.2:3b
-fi
-
-# --- Step 2: Activate Python venv ---
-log "Activating Python environment..."
-if [ -d "$PROJECT_DIR/venv" ]; then
-    source "$PROJECT_DIR/venv/bin/activate"
-else
-    log "Creating Python venv..."
-    python3 -m venv "$PROJECT_DIR/venv"
-    source "$PROJECT_DIR/venv/bin/activate"
-    pip install --quiet -r "$PROJECT_DIR/requirements.txt"
-fi
-
-# --- Step 3: Create required directories ---
-mkdir -p output/{videos,audio,images,thumbnails} data/logs assets/music
-
-# --- Step 4: Start the scheduler ---
-log "Starting scheduler..."
-cd "$PROJECT_DIR"
-exec python3 -m scripts.scheduler
+case "$MODE" in
+    batch|incremental)
+        echo "=========================================="
+        echo "Little Wisdom Tales - Autonomous Pipeline"
+        echo "Mode: $MODE"
+        echo "Channels: 21 (6 story + 7 education + 4 AI + 3 crafts + 1 existing)"
+        echo "Languages: EN, HI, ES, FR, PT, AR"
+        echo "Started: $(date -u)"
+        echo "=========================================="
+        exec python scripts/scheduler.py "$MODE" 2>&1 | tee -a data/logs/pipeline.log
+        ;;
+    status)
+        echo "=== Pipeline Status ==="
+        python scripts/batch_pipeline.py stats
+        echo ""
+        echo "=== AI Education Progress ==="
+        python scripts/ai_education_generator.py progress 2>/dev/null || echo "AI education module not ready"
+        echo ""
+        echo "=== Recent Logs ==="
+        tail -20 data/logs/scheduler.log 2>/dev/null || echo "No scheduler logs yet"
+        ;;
+    *)
+        echo "Usage: $0 [batch|incremental|status]"
+        exit 1
+        ;;
+esac

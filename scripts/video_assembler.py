@@ -18,6 +18,45 @@ load_dotenv()
 OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", "./output"))
 ASSETS_DIR = Path(os.getenv("ASSETS_DIR", "./assets"))
 
+# Scene-level transition settings
+SCENE_FADE_DURATION = 0.3  # seconds of fade in/out at scene boundaries
+
+# Content-type branding colors and text
+CONTENT_BRANDING = {
+    "story": {
+        "bg_color": "#1a1a2e",
+        "accent_color": "#e94560",
+        "channel_name": "Little Wisdom Tales",
+        "subtitle": "A Story for Kids",
+        "moral_bg": "#2d3436",
+        "moral_accent": "#ffeaa7",
+    },
+    "education": {
+        "bg_color": "#0a3d62",
+        "accent_color": "#f6b93b",
+        "channel_name": "Little Wisdom Academy",
+        "subtitle": "Learn with Professor Wisdom!",
+        "moral_bg": "#1e3799",
+        "moral_accent": "#f8c291",
+    },
+    "ai_education": {
+        "bg_color": "#0c2461",
+        "accent_color": "#00d2d3",
+        "channel_name": "Little Wisdom AI Lab",
+        "subtitle": "Explore with Byte the Robot!",
+        "moral_bg": "#1B1464",
+        "moral_accent": "#55efc4",
+    },
+    "crafts_skills": {
+        "bg_color": "#3d1f00",
+        "accent_color": "#f0932b",
+        "channel_name": "Little Builders Workshop",
+        "subtitle": "Build with Handy the Helper!",
+        "moral_bg": "#4a2800",
+        "moral_accent": "#ffeaa7",
+    },
+}
+
 
 def get_audio_duration(audio_path: str) -> float:
     """Get duration of an audio file."""
@@ -92,18 +131,21 @@ def create_intro_clip(
     width: int = 1920,
     height: int = 1080,
     output_path: str = None,
+    content_type: str = "story",
 ) -> str:
-    """Create an intro clip with title using PIL-rendered image."""
+    """Create a branded intro clip with title using PIL-rendered image."""
     if output_path is None:
         output_path = str(OUTPUT_DIR / "videos" / "temp_intro.mp4")
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-    # Render intro image with PIL
-    intro_img = _render_text_image(width, height, "#1a1a2e", [
-        {"text": "Little Wisdom Tales", "color": "#e94560", "size": 36, "y_ratio": 0.15},
+    branding = CONTENT_BRANDING.get(content_type, CONTENT_BRANDING["story"])
+
+    # Render intro image with PIL using content-type branding
+    intro_img = _render_text_image(width, height, branding["bg_color"], [
+        {"text": branding["channel_name"], "color": branding["accent_color"], "size": 36, "y_ratio": 0.15},
         {"text": title, "color": "white", "size": 56, "y_ratio": 0.5},
-        {"text": "A Story for Kids", "color": "#f0d9b5", "size": 30, "y_ratio": 0.75},
+        {"text": branding["subtitle"], "color": "#f0d9b5", "size": 30, "y_ratio": 0.75},
     ])
 
     cmd = [
@@ -129,16 +171,27 @@ def create_moral_card(
     width: int = 1920,
     height: int = 1080,
     output_path: str = None,
+    content_type: str = "story",
 ) -> str:
-    """Create an ending card showing the moral of the story."""
+    """Create a branded ending card showing the moral/lesson summary."""
     if output_path is None:
         output_path = str(OUTPUT_DIR / "videos" / "temp_moral.mp4")
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-    # Render moral card with PIL
-    moral_img = _render_text_image(width, height, "#2d3436", [
-        {"text": "The Moral of the Story", "color": "#ffeaa7", "size": 42, "y_ratio": 0.35},
+    branding = CONTENT_BRANDING.get(content_type, CONTENT_BRANDING["story"])
+
+    # Header text varies by content type
+    header_text = {
+        "story": "The Moral of the Story",
+        "education": "What We Learned Today!",
+        "ai_education": "Key Takeaway!",
+        "crafts_skills": "What We Built Today!",
+    }.get(content_type, "The Moral of the Story")
+
+    # Render moral card with PIL using content-type branding
+    moral_img = _render_text_image(width, height, branding["moral_bg"], [
+        {"text": header_text, "color": branding["moral_accent"], "size": 42, "y_ratio": 0.35},
         {"text": moral, "color": "white", "size": 36, "y_ratio": 0.55},
     ])
 
@@ -305,12 +358,20 @@ def _create_multi_image_clip(
         # FFmpeg concat demuxer needs the last file repeated without duration
         f.write(f"file '{os.path.abspath(resized_images[-1])}'\n")
 
-    # Build video from image sequence + audio
+    # Build video from image sequence + audio with scene fades
+    vf_parts = [
+        f"fps={fps}",
+        "vignette=PI/5",
+        f"fade=t=in:st=0:d={SCENE_FADE_DURATION}",
+        f"fade=t=out:st={max(0, duration - SCENE_FADE_DURATION):.4f}:d={SCENE_FADE_DURATION}",
+    ]
+    vf_str = ",".join(vf_parts)
+
     cmd = [
         "ffmpeg", "-y",
         "-f", "concat", "-safe", "0", "-i", concat_file,
         "-i", audio_path,
-        "-vf", f"fps={fps},vignette=PI/5",
+        "-vf", vf_str,
         "-c:v", "libx264", "-preset", "medium", "-crf", "23",
         "-c:a", "aac", "-ar", "24000", "-ac", "1",
         "-t", str(duration),

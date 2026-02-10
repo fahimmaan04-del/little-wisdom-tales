@@ -1,0 +1,1017 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-02-10",
+    "purpose": "Crafts & Skills curriculum for Little Wisdom Tales YouTube channel",
+    "host_character": "Handy the Helper",
+    "host_description": "A friendly cartoon toolbelt character with big expressive eyes, a yellow hard hat, and colorful tools hanging from their belt. Always wears safety goggles and has a warm encouraging smile.",
+    "age_range": "6-14",
+    "total_categories": 3,
+    "total_lessons": 135,
+    "made_for_kids": true
+  },
+  "categories": {
+    "carpentry_building": {
+      "display_name": "Carpentry & Building",
+      "playlist_name": "Carpentry & Building for Kids - Learn to Build with Handy!",
+      "description": "Learn all about woodworking, building, and construction through fun cartoon lessons! Handy the Helper teaches you about tools, wood, joints, and how to design your very own projects.",
+      "icon": "hammer",
+      "age_range": "6-14",
+      "visual_theme": {
+        "colors": "warm wood browns, golden yellow, and forest green",
+        "props": "cartoon hammer, colorful nails, wood planks, measuring tape, pencil, square ruler, sawdust particles",
+        "setting": "a cheerful cartoon workshop with wooden workbenches, hanging tools on pegboard walls, and sawdust on the floor"
+      },
+      "topics": [
+        {
+          "topic": "Introduction to Tools",
+          "lessons": [
+            {
+              "title": "Meet the Hammer - How Hammers Work!",
+              "description": "Learn about different types of hammers and when to use each one, from claw hammers to mallets",
+              "difficulty": "beginner",
+              "safety_note": "Always wear safety goggles when hammering and never swing a hammer near people"
+            },
+            {
+              "title": "Screwdrivers and Screws - Twisty Tools!",
+              "description": "Discover flat-head and Phillips screwdrivers, and learn how screws hold things together",
+              "difficulty": "beginner",
+              "safety_note": "Always ask an adult before using screwdrivers and keep the tip pointed away from your body"
+            },
+            {
+              "title": "Saws - The Cutting Crew!",
+              "description": "Learn about hand saws, coping saws, and how they cut through wood with their teeth",
+              "difficulty": "beginner",
+              "safety_note": "Saws are very sharp and only adults should use them - kids should always watch from a safe distance"
+            },
+            {
+              "title": "Drills and Bits - Spin to Win!",
+              "description": "How drills make holes in wood and why different drill bits are used for different materials",
+              "difficulty": "beginner",
+              "safety_note": "Power drills are for adults only - always wear safety goggles when someone is drilling nearby"
+            },
+            {
+              "title": "The Toolbox Tour - Every Builder's Best Friend!",
+              "description": "A tour of a complete toolbox and how to organize tools properly so you can find them fast",
+              "difficulty": "beginner",
+              "safety_note": "Always put tools back in the toolbox after use and carry it with two hands"
+            }
+          ]
+        },
+        {
+          "topic": "Measuring and Marking",
+          "lessons": [
+            {
+              "title": "Rulers and Tape Measures - Size Matters!",
+              "description": "Learn to read rulers and tape measures, understanding inches and centimeters",
+              "difficulty": "beginner",
+              "safety_note": "Be careful with retractable tape measures - they snap back fast and can pinch fingers"
+            },
+            {
+              "title": "The Magic of the Square - Making Perfect Corners!",
+              "description": "How carpenters use squares and T-squares to make sure corners are exactly 90 degrees",
+              "difficulty": "beginner",
+              "safety_note": "Metal squares have sharp edges, so handle them carefully by the handle"
+            },
+            {
+              "title": "Level Up! - How to Check if Things Are Straight",
+              "description": "Discover how spirit levels work with the magic bubble that tells you if something is perfectly flat",
+              "difficulty": "beginner",
+              "safety_note": "Be careful not to drop a level from height - it can break and the glass tube inside is fragile"
+            },
+            {
+              "title": "Marking Like a Pro - Pencils, Chalk Lines, and More!",
+              "description": "Different ways builders mark their measurements on wood before cutting",
+              "difficulty": "intermediate",
+              "safety_note": "Always double-check your marks before asking an adult to cut - measure twice, cut once!"
+            },
+            {
+              "title": "Blueprint Reading for Kids - Understanding Plans!",
+              "description": "How to read simple building plans and blueprints, understanding the bird's-eye view",
+              "difficulty": "intermediate",
+              "safety_note": "Building projects should always start with a plan reviewed by an adult"
+            }
+          ]
+        },
+        {
+          "topic": "Types of Wood",
+          "lessons": [
+            {
+              "title": "Hardwood vs Softwood - What's the Difference?",
+              "description": "Learn why oak is hard and pine is soft, and which type is best for different projects",
+              "difficulty": "beginner",
+              "safety_note": "Watch out for splinters when handling raw wood - always sand rough edges"
+            },
+            {
+              "title": "Where Does Wood Come From? - From Tree to Lumber!",
+              "description": "Follow the journey of a tree from the forest to the lumber yard to your project",
+              "difficulty": "beginner",
+              "safety_note": "Never climb on lumber stacks - they can shift and fall"
+            },
+            {
+              "title": "Plywood and Particle Board - Engineered Wood Wonders!",
+              "description": "How layers of wood are glued together to make strong sheets for building",
+              "difficulty": "intermediate",
+              "safety_note": "The edges of plywood can be very rough - always wear gloves when handling large sheets"
+            },
+            {
+              "title": "Grain Patterns - Wood's Natural Artwork!",
+              "description": "Learn to read wood grain patterns and why they matter for strength and beauty",
+              "difficulty": "intermediate",
+              "safety_note": "When sanding with the grain, wear a dust mask to avoid breathing in wood particles"
+            },
+            {
+              "title": "Recycled Wood Projects - Giving Old Wood New Life!",
+              "description": "How pallets and old furniture can be turned into amazing new creations",
+              "difficulty": "intermediate",
+              "safety_note": "Old wood may have hidden nails or splinters - always have an adult inspect recycled wood first"
+            }
+          ]
+        },
+        {
+          "topic": "Simple Joints",
+          "lessons": [
+            {
+              "title": "Butt Joints - The Simplest Connection!",
+              "description": "How two pieces of wood are joined end-to-end with glue and nails or screws",
+              "difficulty": "beginner",
+              "safety_note": "Always clamp wood pieces before nailing to keep your fingers away from the hammer"
+            },
+            {
+              "title": "Lap Joints - Overlapping for Strength!",
+              "description": "How overlapping wood pieces create stronger connections than butt joints",
+              "difficulty": "intermediate",
+              "safety_note": "Joint cutting requires sharp tools - always let an adult do the cutting"
+            },
+            {
+              "title": "Glue Magic - Wood Glue and How It Works!",
+              "description": "The science behind wood glue and why glued joints can be stronger than the wood itself",
+              "difficulty": "beginner",
+              "safety_note": "Wood glue is sticky and hard to remove from clothes - wear an apron and wash hands right away"
+            },
+            {
+              "title": "Dowel Joints - The Hidden Connector!",
+              "description": "How wooden pegs called dowels create invisible super-strong connections",
+              "difficulty": "intermediate",
+              "safety_note": "Dowel drilling requires precision - always use a drill press with adult supervision"
+            },
+            {
+              "title": "Famous Joints in History - How Ancient Builders Connected Wood!",
+              "description": "Amazing Japanese and Egyptian wood joints that hold together without any nails at all",
+              "difficulty": "advanced",
+              "safety_note": "Complex joints require years of practice - appreciate the craftsmanship from a safe distance"
+            }
+          ]
+        },
+        {
+          "topic": "Building a Birdhouse",
+          "lessons": [
+            {
+              "title": "Birdhouse Design - Planning Your Feathered Friend's Home!",
+              "description": "How to draw plans for a birdhouse including the right hole size for different birds",
+              "difficulty": "beginner",
+              "safety_note": "Always start any project by making a plan and gathering materials with an adult"
+            },
+            {
+              "title": "Cutting the Pieces - Birdhouse Parts Explained!",
+              "description": "Understanding the six panels of a birdhouse: floor, walls, and roof pieces",
+              "difficulty": "intermediate",
+              "safety_note": "All cutting must be done by an adult - kids can help with measuring and marking"
+            },
+            {
+              "title": "Assembly Time - Putting the Birdhouse Together!",
+              "description": "Step-by-step cartoon animation showing how all the pieces come together",
+              "difficulty": "intermediate",
+              "safety_note": "Use a clamp to hold pieces steady while an adult helps with nailing or screwing"
+            },
+            {
+              "title": "Painting and Decorating Your Birdhouse!",
+              "description": "Choose safe outdoor paints and fun designs to make your birdhouse look amazing",
+              "difficulty": "beginner",
+              "safety_note": "Use non-toxic outdoor paint and always paint in a well-ventilated area"
+            }
+          ]
+        },
+        {
+          "topic": "Building a Bookshelf",
+          "lessons": [
+            {
+              "title": "Bookshelf Blueprint - Designing Your Book Castle!",
+              "description": "Planning a simple bookshelf with measurements based on your favorite books",
+              "difficulty": "intermediate",
+              "safety_note": "Heavy bookshelves must be anchored to the wall by an adult to prevent tipping"
+            },
+            {
+              "title": "Shelf Spacing - Math Meets Carpentry!",
+              "description": "Using math to calculate equal spacing between shelves for a perfect bookshelf",
+              "difficulty": "intermediate",
+              "safety_note": "Measure three times before marking to avoid wasting wood"
+            },
+            {
+              "title": "Brackets and Supports - What Holds Shelves Up!",
+              "description": "Different types of shelf supports from L-brackets to hidden cleats",
+              "difficulty": "intermediate",
+              "safety_note": "Wall mounting requires finding studs - always have an adult use a stud finder and drill"
+            },
+            {
+              "title": "Finishing Touches - Sanding and Sealing Your Shelf!",
+              "description": "How to make your bookshelf smooth and beautiful with sanding and clear coat",
+              "difficulty": "intermediate",
+              "safety_note": "Wear a dust mask when sanding and work in a ventilated area when applying finish"
+            }
+          ]
+        },
+        {
+          "topic": "Sandpaper and Finishing",
+          "lessons": [
+            {
+              "title": "Sandpaper Science - Why Rough Paper Makes Things Smooth!",
+              "description": "How sandpaper grit numbers work and why you start rough and end smooth",
+              "difficulty": "beginner",
+              "safety_note": "Always sand away from your body and wear a dust mask to protect your lungs"
+            },
+            {
+              "title": "Staining Wood - Adding Color to Your Projects!",
+              "description": "How wood stains soak into the grain to change color while showing the natural pattern",
+              "difficulty": "intermediate",
+              "safety_note": "Wood stains contain chemicals - always work outdoors or in a well-ventilated area with adult supervision"
+            },
+            {
+              "title": "Varnish and Lacquer - The Shiny Shield!",
+              "description": "How clear coats protect wood from water, scratches, and wear",
+              "difficulty": "intermediate",
+              "safety_note": "Varnish fumes can be harmful - only adults should apply finish coats, and always outdoors"
+            },
+            {
+              "title": "Paint vs Stain - Which One Should You Choose?",
+              "description": "When to use paint that covers the wood vs stain that shows the grain",
+              "difficulty": "intermediate",
+              "safety_note": "Always use non-toxic, water-based products for kids' projects whenever possible"
+            }
+          ]
+        },
+        {
+          "topic": "Workshop Safety",
+          "lessons": [
+            {
+              "title": "Safety Gear - Dress Like a Pro Builder!",
+              "description": "All about safety goggles, ear protection, dust masks, gloves, and steel-toe boots",
+              "difficulty": "beginner",
+              "safety_note": "NEVER enter a workshop without proper safety gear - eyes and ears must always be protected"
+            },
+            {
+              "title": "Workshop Rules - The Builder's Code!",
+              "description": "The essential rules every workshop follows to keep everyone safe and happy",
+              "difficulty": "beginner",
+              "safety_note": "The number one rule: ALWAYS have an adult present when in a workshop"
+            },
+            {
+              "title": "Clean Up Like a Champion - Why Tidy Workshops Are Safe!",
+              "description": "How keeping your workspace clean prevents accidents and helps you find tools",
+              "difficulty": "beginner",
+              "safety_note": "Sawdust on the floor is a slip hazard - sweep up after every task"
+            },
+            {
+              "title": "First Aid Basics for the Workshop!",
+              "description": "What to do if someone gets a splinter, cut, or bump while working on a project",
+              "difficulty": "beginner",
+              "safety_note": "Always know where the first aid kit is located and tell an adult immediately if anyone gets hurt"
+            }
+          ]
+        },
+        {
+          "topic": "Famous Builders and Architects",
+          "lessons": [
+            {
+              "title": "The Great Pyramid Builders - Ancient Construction Wonders!",
+              "description": "How the ancient Egyptians built the pyramids using simple tools and incredible teamwork",
+              "difficulty": "intermediate",
+              "safety_note": "Large construction sites are dangerous - always observe from a safe designated area"
+            },
+            {
+              "title": "Bridges That Changed the World - Engineering Marvels!",
+              "description": "Amazing bridges from the Golden Gate to Tower Bridge and the engineering behind them",
+              "difficulty": "intermediate",
+              "safety_note": "Never play near construction zones or on bridge structures - enjoy them from walkways"
+            },
+            {
+              "title": "Skyscrapers - How Do Tall Buildings Stay Up?",
+              "description": "The secret of steel frames and foundations that let buildings reach the clouds",
+              "difficulty": "advanced",
+              "safety_note": "High places are dangerous - buildings are designed by engineers who train for many years"
+            },
+            {
+              "title": "Treehouses Around the World - Amazing Builds in Nature!",
+              "description": "Incredible treehouses and how they are designed to be safe and respect the trees",
+              "difficulty": "intermediate",
+              "safety_note": "Treehouse building requires professional help - never climb trees without adult supervision"
+            }
+          ]
+        },
+        {
+          "topic": "Design Your Dream Treehouse",
+          "lessons": [
+            {
+              "title": "Treehouse Dreams - Sketching Your Ultimate Hideout!",
+              "description": "How to draw and plan your dream treehouse with rooms, windows, and fun features",
+              "difficulty": "beginner",
+              "safety_note": "Treehouse designs are for fun - real treehouse building always needs professional help"
+            },
+            {
+              "title": "Picking the Perfect Tree - What Makes a Good Treehouse Tree?",
+              "description": "Which trees are strong enough for treehouses and how arborists check tree health",
+              "difficulty": "intermediate",
+              "safety_note": "Never attach anything to a tree without an adult arborist checking it is safe and healthy"
+            },
+            {
+              "title": "Treehouse Platforms and Supports - The Foundation in the Sky!",
+              "description": "How platforms are built around tree trunks using special brackets that do not harm the tree",
+              "difficulty": "advanced",
+              "safety_note": "Platform building at height requires professional equipment and trained adults"
+            },
+            {
+              "title": "Treehouse Accessories - Rope Bridges, Slides, and Zip Lines!",
+              "description": "Fun additions to treehouses and the engineering that makes them safe and exciting",
+              "difficulty": "advanced",
+              "safety_note": "All treehouse accessories must be professionally installed and regularly inspected by adults"
+            }
+          ]
+        }
+      ]
+    },
+    "plumbing_home": {
+      "display_name": "Plumbing & Home Skills",
+      "playlist_name": "Plumbing & Home Skills for Kids - Fix It with Handy!",
+      "description": "Discover how water flows through your house, how pipes and fittings work, and learn basic home maintenance skills! Handy the Helper makes plumbing and home repair fun and easy to understand.",
+      "icon": "wrench",
+      "age_range": "6-14",
+      "visual_theme": {
+        "colors": "ocean blue, teal green, and crisp white",
+        "props": "cartoon pipes, colorful faucets, water droplets, wrenches, paint rollers, buckets, plunger",
+        "setting": "a bright cartoon house cutaway showing colorful pipes running through walls and under floors"
+      },
+      "topics": [
+        {
+          "topic": "How Water Gets to Your House",
+          "lessons": [
+            {
+              "title": "The Amazing Water Journey - From Cloud to Faucet!",
+              "description": "Follow a water droplet from rain cloud to reservoir, through treatment and pipes to your tap",
+              "difficulty": "beginner",
+              "safety_note": "Never drink water from streams, puddles, or garden hoses - only drink from clean taps inside"
+            },
+            {
+              "title": "Water Treatment Plants - How Dirty Water Gets Clean!",
+              "description": "The fascinating process of filtering and treating water so it is safe to drink",
+              "difficulty": "beginner",
+              "safety_note": "Water treatment uses special chemicals - never add anything to water supplies"
+            },
+            {
+              "title": "Water Towers and Pressure - Why Water Goes Upstairs!",
+              "description": "How gravity and water towers create the pressure that pushes water through pipes to every floor",
+              "difficulty": "intermediate",
+              "safety_note": "Water towers are tall and dangerous - never climb water infrastructure or fences around them"
+            },
+            {
+              "title": "The Water Meter - How We Measure Water Use!",
+              "description": "Reading a water meter and understanding how much water your family uses every day",
+              "difficulty": "intermediate",
+              "safety_note": "Water meters are utility property - look but do not touch or open the cover without an adult"
+            },
+            {
+              "title": "Saving Water - Be a Water Hero!",
+              "description": "Easy ways kids can save water at home and why conservation matters for the planet",
+              "difficulty": "beginner",
+              "safety_note": "Turn off taps tightly after use - dripping taps waste thousands of liters per year"
+            }
+          ]
+        },
+        {
+          "topic": "Pipes and Fittings",
+          "lessons": [
+            {
+              "title": "Copper, PVC, and PEX - The Pipe Family!",
+              "description": "Different types of pipes used in homes and why each material is chosen for specific jobs",
+              "difficulty": "beginner",
+              "safety_note": "Cut pipe ends can be extremely sharp - never handle cut pipes without adult supervision"
+            },
+            {
+              "title": "Elbows, Tees, and Couplings - The Pipe Connectors!",
+              "description": "How special fittings let pipes turn corners, split into branches, and join together",
+              "difficulty": "beginner",
+              "safety_note": "Pipe cement and solder are for adults only - these materials get very hot or produce fumes"
+            },
+            {
+              "title": "How Pipes Are Joined - Soldering, Gluing, and Crimping!",
+              "description": "The different methods plumbers use to connect pipes so they never leak",
+              "difficulty": "intermediate",
+              "safety_note": "Soldering uses an extremely hot torch - only licensed plumbers should solder pipes"
+            },
+            {
+              "title": "Drain Pipes - Where Does the Water Go?",
+              "description": "Following used water from your sink through drain pipes to the sewer system",
+              "difficulty": "beginner",
+              "safety_note": "Never put your hand into drain pipes or garbage disposals - call an adult if something falls in"
+            },
+            {
+              "title": "Pipe Insulation - Keeping Pipes Warm in Winter!",
+              "description": "Why pipes can freeze and burst in cold weather and how foam insulation prevents it",
+              "difficulty": "intermediate",
+              "safety_note": "Frozen pipes can burst suddenly - if you see ice on pipes, tell an adult immediately"
+            }
+          ]
+        },
+        {
+          "topic": "How Toilets Work",
+          "lessons": [
+            {
+              "title": "The Flush! - What Really Happens When You Push the Handle?",
+              "description": "The incredible mechanics inside a toilet tank that make flushing work every single time",
+              "difficulty": "beginner",
+              "safety_note": "Never put toys, wipes, or anything except toilet paper in the toilet - it causes clogs"
+            },
+            {
+              "title": "The Float and Flapper - Toilet Tank Teamwork!",
+              "description": "How the float ball and rubber flapper work together to fill and release water",
+              "difficulty": "intermediate",
+              "safety_note": "Do not remove the toilet tank lid without an adult - it is heavy and can crack if dropped"
+            },
+            {
+              "title": "The S-Trap Mystery - Why Toilets Don't Smell!",
+              "description": "The clever curved pipe that traps water to block sewer gases from entering your bathroom",
+              "difficulty": "intermediate",
+              "safety_note": "Sewer gases can be harmful - if you smell bad odors from drains, tell an adult right away"
+            },
+            {
+              "title": "Toilet Troubles - Why Toilets Clog and How Plumbers Fix Them!",
+              "description": "What causes toilet clogs and the tools plumbers use including plungers and augers",
+              "difficulty": "intermediate",
+              "safety_note": "Only use a plunger with adult help - if a clog is serious, always call a professional plumber"
+            }
+          ]
+        },
+        {
+          "topic": "How Faucets Work",
+          "lessons": [
+            {
+              "title": "Turn the Handle! - Inside a Faucet!",
+              "description": "What happens inside when you turn a faucet handle and how valves control water flow",
+              "difficulty": "beginner",
+              "safety_note": "Always turn faucets off gently - forcing them can break the handles"
+            },
+            {
+              "title": "Hot and Cold - How Mixer Taps Blend Water!",
+              "description": "The clever cartridge inside mixer taps that blends hot and cold water to your perfect temperature",
+              "difficulty": "intermediate",
+              "safety_note": "Hot water can scald - always start with cold and slowly add hot, and test with your elbow first"
+            },
+            {
+              "title": "Touchless Faucets - Sensors and Solenoids!",
+              "description": "How infrared sensors detect your hands and electronic valves turn water on automatically",
+              "difficulty": "intermediate",
+              "safety_note": "Electronic faucets have electrical components - never open or touch the battery compartment when wet"
+            },
+            {
+              "title": "Drip Drip Drip - Why Faucets Leak and What Wears Out!",
+              "description": "The rubber washers and O-rings inside faucets that wear down over time and cause leaks",
+              "difficulty": "intermediate",
+              "safety_note": "Faucet repair requires turning off the water supply first - always have an adult do repairs"
+            }
+          ]
+        },
+        {
+          "topic": "Painting Basics",
+          "lessons": [
+            {
+              "title": "Paint Types Explained - Latex, Acrylic, and More!",
+              "description": "Different types of paint and when to use each one for walls, wood, and crafts",
+              "difficulty": "beginner",
+              "safety_note": "Always use non-toxic, water-based paints for kids' projects and paint in well-ventilated areas"
+            },
+            {
+              "title": "Brushes, Rollers, and Sprayers - Painting Tools 101!",
+              "description": "How to choose the right painting tool for every job and how to hold a brush like a pro",
+              "difficulty": "beginner",
+              "safety_note": "Keep paint away from eyes and mouth - wear old clothes and cover floors with drop cloths"
+            },
+            {
+              "title": "Taping and Masking - The Secret to Perfect Edges!",
+              "description": "How painter's tape creates crisp, clean lines between colors and protects surfaces",
+              "difficulty": "beginner",
+              "safety_note": "Remove painter's tape before paint fully dries to prevent peeling the fresh paint off"
+            },
+            {
+              "title": "Mixing Colors - The Color Wheel Adventure!",
+              "description": "How primary colors mix to create secondary and tertiary colors for the perfect shade",
+              "difficulty": "beginner",
+              "safety_note": "Mix paints in containers with lids to avoid spills and always wash hands after painting"
+            },
+            {
+              "title": "Painting a Room - From Prep to Perfect!",
+              "description": "The full process of painting a room: prep, prime, paint, and clean up like a professional",
+              "difficulty": "intermediate",
+              "safety_note": "Room painting with ladders is for adults - kids can help with low areas and trim"
+            }
+          ]
+        },
+        {
+          "topic": "Fixing a Leaky Faucet",
+          "lessons": [
+            {
+              "title": "Detective Drip - Finding Where the Leak Is!",
+              "description": "How to identify where a leak is coming from by looking at drip patterns and water stains",
+              "difficulty": "beginner",
+              "safety_note": "If you find a leak, tell an adult right away - water damage gets worse the longer you wait"
+            },
+            {
+              "title": "Shutting Off the Water - The Emergency Stop!",
+              "description": "Where shut-off valves are located and how to turn off water to a specific fixture",
+              "difficulty": "intermediate",
+              "safety_note": "Only turn shut-off valves with adult permission - know where your main shut-off valve is for emergencies"
+            },
+            {
+              "title": "The Washer Swap - Cartoon Faucet Surgery!",
+              "description": "Animated step-by-step of how a plumber replaces a worn washer to stop a dripping faucet",
+              "difficulty": "intermediate",
+              "safety_note": "Faucet disassembly is for adults or supervised teens - small parts can be lost easily"
+            },
+            {
+              "title": "Testing and Celebrating - The Leak Is Fixed!",
+              "description": "How to test a repair by slowly turning water back on and checking for drips",
+              "difficulty": "intermediate",
+              "safety_note": "Turn water on slowly after any repair - if leaking continues, turn off and call a professional"
+            }
+          ]
+        },
+        {
+          "topic": "Home Safety",
+          "lessons": [
+            {
+              "title": "Smoke Detectors - Your Home's Superhero Alarm!",
+              "description": "How smoke detectors work, why they beep, and why testing them monthly saves lives",
+              "difficulty": "beginner",
+              "safety_note": "Never remove batteries from smoke detectors - test the button monthly and tell adults if it beeps randomly"
+            },
+            {
+              "title": "Carbon Monoxide - The Invisible Danger!",
+              "description": "What carbon monoxide is, where it comes from, and how CO detectors keep your family safe",
+              "difficulty": "intermediate",
+              "safety_note": "If a CO alarm sounds, leave the house immediately and call emergency services from outside"
+            },
+            {
+              "title": "Fire Extinguishers - How to Be Prepared!",
+              "description": "Types of fire extinguishers and the PASS technique that firefighters teach everyone",
+              "difficulty": "intermediate",
+              "safety_note": "Fire extinguishers are for adults - kids should evacuate and call 911 if they see a fire"
+            },
+            {
+              "title": "Escape Plans - Know Your Way Out!",
+              "description": "How to create a family fire escape plan with two exits from every room",
+              "difficulty": "beginner",
+              "safety_note": "Practice your escape plan twice a year and have a meeting point outside your home"
+            }
+          ]
+        },
+        {
+          "topic": "How Heating Works",
+          "lessons": [
+            {
+              "title": "Furnaces and Boilers - Your Home's Warm Heart!",
+              "description": "How furnaces heat air and boilers heat water to keep your whole house cozy in winter",
+              "difficulty": "intermediate",
+              "safety_note": "Furnaces and boilers get very hot - never touch them or store anything near them"
+            },
+            {
+              "title": "Radiators and Vents - Spreading the Warmth!",
+              "description": "How hot water radiators and forced-air vents distribute heat throughout every room",
+              "difficulty": "intermediate",
+              "safety_note": "Radiators can be very hot to the touch - never place clothing or toys on top of them"
+            },
+            {
+              "title": "Thermostats - The Temperature Boss!",
+              "description": "How thermostats measure temperature and tell your heating system when to turn on and off",
+              "difficulty": "beginner",
+              "safety_note": "Ask an adult before changing the thermostat - setting it too high wastes energy and money"
+            },
+            {
+              "title": "Insulation - The Invisible Blanket Around Your House!",
+              "description": "How insulation in walls, attics, and floors keeps heat in during winter and out during summer",
+              "difficulty": "intermediate",
+              "safety_note": "Insulation materials can irritate skin and lungs - never touch or disturb insulation yourself"
+            }
+          ]
+        },
+        {
+          "topic": "Building a Rain Collector",
+          "lessons": [
+            {
+              "title": "Rain Barrel Basics - Catching Free Water from the Sky!",
+              "description": "How rain barrels work and why collecting rainwater is great for gardens and the environment",
+              "difficulty": "beginner",
+              "safety_note": "Collected rainwater is not safe to drink - only use it for watering plants and gardens"
+            },
+            {
+              "title": "Gutters and Downspouts - Guiding Rain to Your Barrel!",
+              "description": "How roof gutters channel rainwater down to a collection point and into your barrel",
+              "difficulty": "intermediate",
+              "safety_note": "Never climb on roofs or ladders to clean gutters - this is a job for adults"
+            },
+            {
+              "title": "Filters and Screens - Keeping Leaves and Bugs Out!",
+              "description": "How mesh screens and filters keep your collected rainwater clean and mosquito-free",
+              "difficulty": "intermediate",
+              "safety_note": "Standing water attracts mosquitoes - always keep rain barrels covered with a tight mesh screen"
+            },
+            {
+              "title": "Using Your Rain Water - Garden Hero!",
+              "description": "How to connect a spigot to your rain barrel and water your garden with free rainwater",
+              "difficulty": "beginner",
+              "safety_note": "Rain barrel spigots can drip - place your barrel on a stable, level surface away from your foundation"
+            }
+          ]
+        },
+        {
+          "topic": "Tools of the Trade",
+          "lessons": [
+            {
+              "title": "The Plumber's Toolkit - Wrenches, Plungers, and More!",
+              "description": "Essential plumbing tools including pipe wrenches, basin wrenches, plungers, and augers",
+              "difficulty": "beginner",
+              "safety_note": "Plumbing tools are heavy and can pinch - always let adults handle professional plumbing tools"
+            },
+            {
+              "title": "Teflon Tape and Pipe Dope - The Leak Stoppers!",
+              "description": "How thread seal tape and pipe compound prevent leaks at every pipe connection",
+              "difficulty": "intermediate",
+              "safety_note": "Pipe dope chemicals can irritate skin - wash hands thoroughly if you touch any sealant materials"
+            },
+            {
+              "title": "The Mighty Plunger - Physics in Action!",
+              "description": "How plungers use air pressure and suction to clear clogs in sinks and toilets",
+              "difficulty": "beginner",
+              "safety_note": "Always wear gloves when plunging and wash the plunger after use to keep things hygienic"
+            },
+            {
+              "title": "Home Repair Kit - What Every Family Should Have!",
+              "description": "Building a basic home repair kit with essential tools for common household fixes",
+              "difficulty": "beginner",
+              "safety_note": "Store your home repair kit in a dry place out of reach of small children"
+            },
+            {
+              "title": "When to Call a Pro - Knowing Your Limits!",
+              "description": "Understanding which home repairs are DIY-friendly and which ones need a licensed professional",
+              "difficulty": "intermediate",
+              "safety_note": "Gas leaks, electrical issues, and major plumbing require licensed professionals - never try these yourself"
+            }
+          ]
+        }
+      ]
+    },
+    "electrical_tech": {
+      "display_name": "Electrical & Tech",
+      "playlist_name": "Electrical & Tech for Kids - Power Up with Handy!",
+      "description": "Explore the amazing world of electricity, circuits, and technology! Handy the Helper explains how electricity works, how to stay safe around it, and how it powers everything from light bulbs to computers.",
+      "icon": "zap",
+      "age_range": "6-14",
+      "visual_theme": {
+        "colors": "electric yellow, vibrant orange, and safety red",
+        "props": "cartoon batteries, glowing light bulbs, colorful wires, switches, solar panels, circuit boards, spark effects",
+        "setting": "a bright cartoon laboratory with glowing circuits on the walls, a big battery display, and sparkling electricity effects"
+      },
+      "topics": [
+        {
+          "topic": "What is Electricity",
+          "lessons": [
+            {
+              "title": "Zap! What IS Electricity? - Electrons on the Move!",
+              "description": "The basics of electricity explained through a cartoon journey of electrons flowing through wires",
+              "difficulty": "beginner",
+              "safety_note": "NEVER touch electrical outlets, wires, or appliances with wet hands - water and electricity are dangerous together"
+            },
+            {
+              "title": "Static Electricity - The Balloon Hair Trick!",
+              "description": "Why rubbing a balloon on your hair makes it stand up and how static electricity differs from current",
+              "difficulty": "beginner",
+              "safety_note": "Static shocks are harmless but real electricity is very dangerous - never experiment with wall outlets"
+            },
+            {
+              "title": "Conductors and Insulators - What Lets Electricity Through?",
+              "description": "Why metals conduct electricity and rubber blocks it, and how this keeps us safe",
+              "difficulty": "beginner",
+              "safety_note": "Insulators like rubber protect us - that is why electrical wires have plastic coating around them"
+            },
+            {
+              "title": "Volts, Amps, and Watts - The Electricity ABCs!",
+              "description": "Simple explanations of voltage (push), amperage (flow), and wattage (power) using a water pipe analogy",
+              "difficulty": "intermediate",
+              "safety_note": "Even low voltages can be dangerous in certain conditions - always respect electricity"
+            },
+            {
+              "title": "AC vs DC - Two Types of Electrical Flow!",
+              "description": "How alternating current from wall outlets differs from direct current in batteries",
+              "difficulty": "intermediate",
+              "safety_note": "Wall outlet electricity (AC) is extremely dangerous - only batteries are safe for kids to handle"
+            }
+          ]
+        },
+        {
+          "topic": "Batteries and Circuits",
+          "lessons": [
+            {
+              "title": "Battery Power! - How Batteries Store Electricity!",
+              "description": "Inside a battery: how chemical reactions create electrical energy to power your toys and devices",
+              "difficulty": "beginner",
+              "safety_note": "Never open, puncture, or throw batteries in fire - they contain chemicals that can leak or explode"
+            },
+            {
+              "title": "Series and Parallel - Two Ways to Connect Batteries!",
+              "description": "Why flashlights stack batteries in a row and how parallel connections last longer",
+              "difficulty": "intermediate",
+              "safety_note": "Never mix old and new batteries or different battery types in the same device"
+            },
+            {
+              "title": "Complete the Circuit! - Why Electricity Needs a Loop!",
+              "description": "How electricity must flow in a complete circle and what happens when the loop is broken",
+              "difficulty": "beginner",
+              "safety_note": "Only build circuits using batteries (1.5V or 9V) - never connect anything to wall outlets"
+            },
+            {
+              "title": "Rechargeable Batteries - Power That Comes Back!",
+              "description": "How rechargeable batteries reverse their chemical reaction to refill with electricity",
+              "difficulty": "intermediate",
+              "safety_note": "Only charge batteries with their proper charger - wrong chargers can overheat batteries"
+            },
+            {
+              "title": "Battery Recycling - Saving the Planet One Battery at a Time!",
+              "description": "Why batteries should never go in regular trash and how recycling centers recover valuable materials",
+              "difficulty": "beginner",
+              "safety_note": "Tape the ends of old batteries before recycling to prevent short circuits in the collection bin"
+            }
+          ]
+        },
+        {
+          "topic": "How Light Bulbs Work",
+          "lessons": [
+            {
+              "title": "Edison's Bright Idea - The Incandescent Light Bulb!",
+              "description": "How Thomas Edison's invention works by heating a thin wire so hot that it glows white",
+              "difficulty": "beginner",
+              "safety_note": "Incandescent bulbs get extremely hot - never touch a lit bulb or one that was recently on"
+            },
+            {
+              "title": "LED Lights - The Cool Glow Revolution!",
+              "description": "How tiny LED chips produce light without heat and why they save so much electricity",
+              "difficulty": "intermediate",
+              "safety_note": "Do not stare directly at bright LED lights - they can be intense enough to strain your eyes"
+            },
+            {
+              "title": "Fluorescent Tubes - The Gas Light Show!",
+              "description": "How electricity excites gas inside tubes to produce ultraviolet light that makes coatings glow",
+              "difficulty": "intermediate",
+              "safety_note": "Fluorescent tubes contain small amounts of mercury - if one breaks, leave the room and get an adult"
+            },
+            {
+              "title": "Smart Bulbs - Lights That Listen to You!",
+              "description": "How WiFi-connected smart bulbs change color and brightness from your phone or voice commands",
+              "difficulty": "intermediate",
+              "safety_note": "Only adults should install or change light bulbs - always turn off the switch first"
+            }
+          ]
+        },
+        {
+          "topic": "How Switches Work",
+          "lessons": [
+            {
+              "title": "Flip the Switch! - Opening and Closing Circuits!",
+              "description": "How a simple light switch breaks or completes an electrical circuit to control power flow",
+              "difficulty": "beginner",
+              "safety_note": "Never open a wall switch plate - the wires behind it carry dangerous household electricity"
+            },
+            {
+              "title": "Toggle, Rocker, and Push - Switch Styles Explained!",
+              "description": "Different mechanical switch designs and how each one makes and breaks electrical contact",
+              "difficulty": "beginner",
+              "safety_note": "Only use switches with dry hands and never stick anything into a switch opening"
+            },
+            {
+              "title": "Dimmer Switches - From Dark to Bright!",
+              "description": "How dimmer switches rapidly turn power on and off to control brightness levels",
+              "difficulty": "intermediate",
+              "safety_note": "Dimmer switches can get warm during use - if one feels very hot, turn it off and tell an adult"
+            },
+            {
+              "title": "Three-Way Switches - Two Switches, One Light!",
+              "description": "The clever wiring that lets you control one light from two different switches in your hallway",
+              "difficulty": "advanced",
+              "safety_note": "Wiring switches requires an electrician - never attempt to wire or rewire switches yourself"
+            }
+          ]
+        },
+        {
+          "topic": "Electrical Safety",
+          "lessons": [
+            {
+              "title": "The Danger Zone - Why Electricity Can Hurt!",
+              "description": "Understanding electric shock, why it is dangerous, and how even small currents can harm your body",
+              "difficulty": "beginner",
+              "safety_note": "If you see a downed power line, stay far away and call 911 immediately - never touch it or anything near it"
+            },
+            {
+              "title": "Outlet Safety - Plug Smart, Stay Safe!",
+              "description": "Why outlet covers exist, how to properly plug and unplug devices, and what GFCI outlets do",
+              "difficulty": "beginner",
+              "safety_note": "Never stick fingers, keys, or anything metal into an electrical outlet - this can cause fatal shock"
+            },
+            {
+              "title": "Water and Electricity - A Dangerous Duo!",
+              "description": "Why water conducts electricity so well and why bathrooms and kitchens have special safety outlets",
+              "difficulty": "beginner",
+              "safety_note": "Never use electrical devices near water, in the bathtub, or with wet hands"
+            },
+            {
+              "title": "Circuit Breakers and Fuses - Your Home's Safety Guards!",
+              "description": "How circuit breakers automatically cut power when too much electricity flows to prevent fires",
+              "difficulty": "intermediate",
+              "safety_note": "Only adults should reset tripped circuit breakers - if one keeps tripping, call an electrician"
+            },
+            {
+              "title": "Extension Cord Safety - Don't Overload!",
+              "description": "How to safely use extension cords and power strips without overloading circuits",
+              "difficulty": "beginner",
+              "safety_note": "Never daisy-chain extension cords together or run them under rugs where they can overheat"
+            }
+          ]
+        },
+        {
+          "topic": "How Motors Work",
+          "lessons": [
+            {
+              "title": "Spin! - Magnets and Coils Make Things Move!",
+              "description": "How electric motors use magnets and wire coils to convert electricity into spinning motion",
+              "difficulty": "intermediate",
+              "safety_note": "Moving motor parts can catch fingers and hair - keep hands clear of all spinning machinery"
+            },
+            {
+              "title": "Motors Everywhere - From Fans to Electric Cars!",
+              "description": "All the places electric motors are hiding in your home: fans, blenders, washing machines, and more",
+              "difficulty": "beginner",
+              "safety_note": "Never open appliances to look at motors inside - unplug and call a repair person if something breaks"
+            },
+            {
+              "title": "Generators - Motors Running Backwards!",
+              "description": "How spinning a motor in reverse generates electricity, and how power plants use giant generators",
+              "difficulty": "intermediate",
+              "safety_note": "Generators produce dangerous electricity and exhaust fumes - never run a generator indoors"
+            },
+            {
+              "title": "Electric vs Gas Engines - The Great Race!",
+              "description": "Comparing electric motors to gasoline engines and why electric vehicles are growing in popularity",
+              "difficulty": "intermediate",
+              "safety_note": "Electric vehicles have very powerful batteries - only trained mechanics should work on EV systems"
+            }
+          ]
+        },
+        {
+          "topic": "Solar Power for Kids",
+          "lessons": [
+            {
+              "title": "Sunshine to Electricity - How Solar Panels Work!",
+              "description": "How photovoltaic cells in solar panels convert sunlight directly into electrical current",
+              "difficulty": "intermediate",
+              "safety_note": "Solar panels produce real electricity in sunlight - never touch the wiring behind a solar panel"
+            },
+            {
+              "title": "Solar Calculators and Toys - Small Panel, Big Fun!",
+              "description": "How small solar cells power calculators, garden lights, and solar-powered toys you can play with",
+              "difficulty": "beginner",
+              "safety_note": "Small solar toys are safe to handle but do not use magnifying glasses to concentrate sunlight on them"
+            },
+            {
+              "title": "Solar Farms - Fields of Sunshine Power!",
+              "description": "How massive solar farms with thousands of panels generate enough electricity for entire cities",
+              "difficulty": "intermediate",
+              "safety_note": "Solar farms are industrial facilities - never enter a solar farm without authorized supervision"
+            },
+            {
+              "title": "Storing Solar Energy - Batteries That Save Sunshine!",
+              "description": "How home battery systems like Powerwalls store solar electricity for use at night",
+              "difficulty": "advanced",
+              "safety_note": "Home battery systems contain high-voltage electricity - they are installed and serviced by professionals only"
+            },
+            {
+              "title": "Build a Solar Oven! - Cooking with Sunshine (Cartoon Guide)!",
+              "description": "A fun cartoon walkthrough of building a simple solar oven from a pizza box and aluminum foil",
+              "difficulty": "beginner",
+              "safety_note": "Solar ovens get hot enough to cook food - always use oven mitts and have adult supervision"
+            }
+          ]
+        },
+        {
+          "topic": "How Computers Use Electricity",
+          "lessons": [
+            {
+              "title": "Tiny Switches - Transistors and the Digital World!",
+              "description": "How billions of microscopic transistor switches inside computer chips process information",
+              "difficulty": "intermediate",
+              "safety_note": "Computer components are sensitive to static electricity - ground yourself before touching circuit boards"
+            },
+            {
+              "title": "Binary Code - Electricity Speaks in 0s and 1s!",
+              "description": "How computers use electrical on/off signals to represent all information as binary code",
+              "difficulty": "intermediate",
+              "safety_note": "Opening computers voids warranties and exposes sharp edges - let a technician handle internal components"
+            },
+            {
+              "title": "CPUs - The Brain of Your Computer!",
+              "description": "How the central processing unit performs billions of calculations per second using electricity",
+              "difficulty": "advanced",
+              "safety_note": "CPUs generate lots of heat - never block a computer's air vents or fans"
+            },
+            {
+              "title": "Charging Your Devices - From Wall to Battery!",
+              "description": "How chargers convert wall electricity to the right voltage and safely fill your device's battery",
+              "difficulty": "beginner",
+              "safety_note": "Always use the official charger for your device - cheap knockoff chargers can overheat or cause fires"
+            },
+            {
+              "title": "Internet Cables - How Data Travels at Light Speed!",
+              "description": "How fiber optic cables use light and copper cables use electricity to transmit internet data",
+              "difficulty": "advanced",
+              "safety_note": "Never dig near buried cables or pull on internet/cable wires - they carry signals for your whole neighborhood"
+            }
+          ]
+        },
+        {
+          "topic": "Building a Simple Circuit",
+          "lessons": [
+            {
+              "title": "Your First Circuit - Battery, Wire, and Bulb!",
+              "description": "A cartoon step-by-step guide to connecting a battery to a small light bulb with wire clips",
+              "difficulty": "beginner",
+              "safety_note": "Only use low-voltage batteries (AA, AAA, or 9V) for experiments - NEVER use wall outlet electricity"
+            },
+            {
+              "title": "Adding a Switch - You Control the Power!",
+              "description": "Building a simple switch from paper clips and adding it to your circuit to control the light",
+              "difficulty": "beginner",
+              "safety_note": "Adult supervision is recommended even for battery circuits - keep circuit components away from small children"
+            },
+            {
+              "title": "Buzzer Circuits - Make Some Noise!",
+              "description": "Replacing the bulb with a small piezo buzzer to make your circuit produce sound instead of light",
+              "difficulty": "beginner",
+              "safety_note": "Piezo buzzers can be loud up close - hold them at arm's length when testing your circuit"
+            },
+            {
+              "title": "Series vs Parallel Circuits - Two Ways to Wire!",
+              "description": "What happens when you wire multiple bulbs in a chain versus side by side and why it matters",
+              "difficulty": "intermediate",
+              "safety_note": "If wires or battery get warm during experiments, disconnect immediately and check for short circuits"
+            },
+            {
+              "title": "Design Challenge - Invent Your Own Circuit Creation!",
+              "description": "Creative circuit project ideas: door alarms, nightlights, and simple robots using basic components",
+              "difficulty": "intermediate",
+              "safety_note": "Document your circuit design on paper first and have an adult review it before building"
+            }
+          ]
+        },
+        {
+          "topic": "Famous Inventors",
+          "lessons": [
+            {
+              "title": "Thomas Edison - The Wizard of Menlo Park!",
+              "description": "The story of Edison's 1000 attempts to invent the light bulb and his amazing laboratory",
+              "difficulty": "beginner",
+              "safety_note": "Edison worked in a professional lab with safety equipment - always use proper safety gear in any workspace"
+            },
+            {
+              "title": "Nikola Tesla - The Genius of AC Power!",
+              "description": "How Tesla's alternating current system won the War of Currents and powers the world today",
+              "difficulty": "intermediate",
+              "safety_note": "Tesla's experiments involved extremely high voltages - electrical experiments should only use safe batteries"
+            },
+            {
+              "title": "Marie Curie - The Scientist Who Discovered Radioactivity!",
+              "description": "How Marie Curie's discoveries about atoms and energy led to X-rays and nuclear power",
+              "difficulty": "intermediate",
+              "safety_note": "Radioactive materials are extremely dangerous - Curie's work showed the importance of safety in science"
+            },
+            {
+              "title": "Benjamin Franklin - The Kite and the Key!",
+              "description": "The famous kite experiment that proved lightning is electricity and led to the lightning rod",
+              "difficulty": "beginner",
+              "safety_note": "NEVER fly kites during storms or near power lines - Franklin's experiment was extremely dangerous"
+            },
+            {
+              "title": "Modern Innovators - Elon Musk, Battery Breakthroughs, and the Future!",
+              "description": "How today's inventors are making better batteries, solar panels, and electric vehicles for a cleaner future",
+              "difficulty": "intermediate",
+              "safety_note": "Innovation requires education and training - study hard and one day you could change the world too"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

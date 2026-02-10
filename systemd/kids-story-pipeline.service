@@ -1,5 +1,5 @@
 [Unit]
-Description=Little Wisdom Tales - Autonomous 21-Channel YouTube Pipeline
+Description=Kids-Heaven - Autonomous 21-Channel YouTube Pipeline
 Documentation=file:///mnt/projects/youtube/SETUP_GUIDE.md
 After=network-online.target ollama.service
 Wants=network-online.target

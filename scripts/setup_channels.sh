@@ -1,5 +1,5 @@
 #!/bin/bash
-# Little Wisdom Tales - One-Time Channel Setup
+# Kids-Heaven - One-Time Channel Setup
 # Creates Brand Account channels and authenticates OAuth tokens.
 #
 # Prerequisites:
@@ -22,7 +22,7 @@ if [ -f .env ]; then
 fi
 
 echo "=============================================="
-echo "  Little Wisdom Tales - Channel Setup"
+echo "  Kids-Heaven - Channel Setup"
 echo "  Total channels to configure: 21"
 echo "=============================================="
 echo ""

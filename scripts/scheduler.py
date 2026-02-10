@@ -682,7 +682,7 @@ def main():
     num_channels = len(config.get("channels", {}))
 
     logger.info("=" * 70)
-    logger.info("Little Wisdom Tales - AUTONOMOUS Multi-Channel Pipeline")
+    logger.info("Kids-Heaven - AUTONOMOUS Multi-Channel Pipeline")
     logger.info(f"  Mode: {PIPELINE_MODE}")
     logger.info(f"  Channels: {num_channels}")
     logger.info(f"  Stories/day: {STORIES_PER_DAY} (6 languages)")

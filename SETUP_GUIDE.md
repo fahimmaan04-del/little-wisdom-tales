@@ -1,4 +1,4 @@
-# Little Wisdom Tales - Complete Setup Guide
+# Kids-Heaven - Complete Setup Guide
 
 ## What This Does
 This automated pipeline creates and publishes kid-friendly moral story videos to your YouTube channel 24/7. Stories come from world folklore (Aesop's Fables, Panchatantra, Arabian Nights, African tales, etc.) with cartoon-style voiceover, AI-generated illustrations, and animated video effects.
@@ -345,7 +345,7 @@ The scheduler auto-cleans output directories older than 3 days when free space d
 ---
 
 ## YouTube Channel Info
-- **Name**: Little Wisdom Tales
+- **Name**: Kids-Heaven
 - **Handle**: @WisdomTalesKids
 - **Channel ID**: UCYu3K3wJQ1t12qzMHXuXYnQ
 - **Content**: Kid-friendly moral stories (ages 4-10)

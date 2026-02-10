@@ -91,14 +91,14 @@ This beautiful story comes from the {collection} collection ({origin}).
 {random.choice(next_teasers)}
 
 ---
-Welcome to Little Wisdom Tales!
+Welcome to Kids-Heaven!
 We bring you magical moral stories from around the world, every single day!
 Stories that teach kindness, courage, honesty, and wisdom.
 
 New stories EVERY DAY for kids aged 4-10!
 
 #KidsStories #MoralStories #BedtimeStories #ChildrenStories
-#LittleWisdomTales #{collection.replace(' ', '')} #KidsEducation
+#KidsHeaven #{collection.replace(' ', '')} #KidsEducation
 #StoriesForKids #AnimatedStories #MoralLessons
 """
     return description
@@ -107,7 +107,7 @@ New stories EVERY DAY for kids aged 4-10!
 # --- Narration Hooks (injected into story script) ---
 
 INTRO_HOOKS = [
-    "Hey friends! Welcome to Little Wisdom Tales! Today, we have a SUPER special story for you!",
+    "Hey friends! Welcome to Kids-Heaven! Today, we have a SUPER special story for you!",
     "Hello, little ones! Are you ready for an amazing adventure? Let's go!",
     "Welcome back, storytellers! We have the BEST story for you today!",
     "Gather around, friends! Today's story has an important lesson. Can you figure out what it is?",

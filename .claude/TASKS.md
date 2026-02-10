@@ -1,4 +1,4 @@
-# Little Wisdom Tales - Task Coordination
+# Kids-Heaven - Task Coordination
 
 > **Purpose**: Multi-session task tracking for automated YouTube channel pipeline
 > **Protocol**: CLAIM task before starting, LOG changes, COMPLETE when done
@@ -23,7 +23,7 @@
 | C001 | Build full pipeline (story->audio->image->video->upload) | 2026-02-09 | Working end-to-end |
 | C002 | Publish 10 stories to YouTube | 2026-02-09 | Using stock photos |
 | C003 | Create systemd service | 2026-02-09 | `kids-story-pipeline.service` |
-| C004 | Set up YouTube channel branding | 2026-02-09 | Little Wisdom Tales |
+| C004 | Set up YouTube channel branding | 2026-02-09 | Kids-Heaven |
 | C005 | Create GitHub repository | 2026-02-09 | fahimmaan04-del/little-wisdom-tales |
 | C006 | Add engagement hooks (intro/midpoint/outro) | 2026-02-09 | Subscribe CTAs |
 | C007 | Build analytics-driven content system | 2026-02-09 | Smart topic selection |
@@ -59,7 +59,7 @@
 | Python | 3.12.3 |
 | Venv | /mnt/projects/youtube/venv/ |
 | LLM | Ollama llama3.2:3b at localhost:11434 |
-| YouTube Channel | Little Wisdom Tales (@WisdomTalesKids, UCYu3K3wJQ1t12qzMHXuXYnQ) |
+| YouTube Channel | Kids-Heaven (@WisdomTalesKids, UCYu3K3wJQ1t12qzMHXuXYnQ) |
 | GitHub | fahimmaan04-del/little-wisdom-tales |
 
 ## Agent Change Log (2026-02-10 Session 2)

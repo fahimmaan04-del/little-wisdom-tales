@@ -1,5 +1,5 @@
 #!/bin/bash
-# Little Wisdom Tales - Fully Autonomous Multi-Channel Pipeline
+# Kids-Heaven - Fully Autonomous Multi-Channel Pipeline
 # Runs 24/7 generating videos across 18 YouTube channels
 # Content: Stories (6 langs) + Education (Oxford/Cambridge) + AI Education
 #
@@ -26,7 +26,7 @@ MODE="${1:-batch}"
 case "$MODE" in
     batch|incremental)
         echo "=========================================="
-        echo "Little Wisdom Tales - Autonomous Pipeline"
+        echo "Kids-Heaven - Autonomous Pipeline"
         echo "Mode: $MODE"
         echo "Channels: 21 (6 story + 7 education + 4 AI + 3 crafts + 1 existing)"
         echo "Languages: EN, HI, ES, FR, PT, AR"

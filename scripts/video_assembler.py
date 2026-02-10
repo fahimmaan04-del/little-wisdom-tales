@@ -26,7 +26,7 @@ CONTENT_BRANDING = {
     "story": {
         "bg_color": "#1a1a2e",
         "accent_color": "#e94560",
-        "channel_name": "Little Wisdom Tales",
+        "channel_name": "Kids-Heaven",
         "subtitle": "A Story for Kids",
         "moral_bg": "#2d3436",
         "moral_accent": "#ffeaa7",
@@ -34,7 +34,7 @@ CONTENT_BRANDING = {
     "education": {
         "bg_color": "#0a3d62",
         "accent_color": "#f6b93b",
-        "channel_name": "Little Wisdom Academy",
+        "channel_name": "Kids-Heaven Academy",
         "subtitle": "Learn with Professor Wisdom!",
         "moral_bg": "#1e3799",
         "moral_accent": "#f8c291",
@@ -42,7 +42,7 @@ CONTENT_BRANDING = {
     "ai_education": {
         "bg_color": "#0c2461",
         "accent_color": "#00d2d3",
-        "channel_name": "Little Wisdom AI Lab",
+        "channel_name": "Kids-Heaven AI Lab",
         "subtitle": "Explore with Byte the Robot!",
         "moral_bg": "#1B1464",
         "moral_accent": "#55efc4",
@@ -50,7 +50,7 @@ CONTENT_BRANDING = {
     "crafts_skills": {
         "bg_color": "#3d1f00",
         "accent_color": "#f0932b",
-        "channel_name": "Little Builders Workshop",
+        "channel_name": "Kids-Heaven Workshop",
         "subtitle": "Build with Handy the Helper!",
         "moral_bg": "#4a2800",
         "moral_accent": "#ffeaa7",

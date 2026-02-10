@@ -277,10 +277,10 @@ def build_video_description(story_script: dict) -> str:
 This story comes from the {collection} collection, originating from {origin}.
 
 ---
-Little Wisdom Tales brings you beautiful moral stories from around the world!
+Kids-Heaven brings you beautiful moral stories from around the world!
 New stories every day for kids aged 4-10.
 
-#KidsStories #MoralStories #BedtimeStories #ChildrenStories #LittleWisdomTales
+#KidsStories #MoralStories #BedtimeStories #ChildrenStories #KidsHeaven
 #StoriesForKids #{collection.replace(' ', '')}
 """
 

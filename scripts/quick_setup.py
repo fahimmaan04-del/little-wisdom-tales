@@ -52,7 +52,7 @@ def list_channels():
     channels = config["channels"]
 
     print(f"\n{'='*70}")
-    print(f"  Little Wisdom Tales - Channel Authentication Status")
+    print(f"  Kids-Heaven - Channel Authentication Status")
     print(f"  Total channels: {len(channels)}")
     print(f"{'='*70}\n")
 

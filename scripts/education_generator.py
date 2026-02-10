@@ -192,7 +192,7 @@ def build_lesson_prompt(
 
     curriculum_name = "Oxford International" if curriculum == "oxford" else "Cambridge International"
 
-    return f"""You are an expert children's educational content creator making a video lesson for a YouTube kids channel called "Little Wisdom Tales".
+    return f"""You are an expert children's educational content creator making a video lesson for a YouTube kids channel called "Kids-Heaven".
 
 Generate an educational lesson script based on these parameters:
 - Class Level: Class {class_level} (ages {age_ctx['age_range']})
@@ -472,7 +472,7 @@ def _enrich_lesson_script(
         "learn with owl",
         "kids learning",
         "educational video",
-        "Little Wisdom Tales",
+        "Kids-Heaven",
     ]
     lesson_script.setdefault("tags", default_tags)
 

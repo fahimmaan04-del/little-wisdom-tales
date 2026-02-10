@@ -1,7 +1,7 @@
 {
   "channels": {
     "stories_en": {
-      "name": "Little Wisdom Tales",
+      "name": "Kids-Heaven",
       "handle": "@WisdomTalesKids",
       "channel_id": "UCYu3K3wJQ1t12qzMHXuXYnQ",
       "type": "stories",
@@ -23,7 +23,7 @@
       }
     },
     "stories_hi": {
-      "name": "Little Wisdom Tales Hindi",
+      "name": "Kids-Heaven Hindi",
       "handle": "",
       "channel_id": "",
       "type": "stories",
@@ -45,7 +45,7 @@
       }
     },
     "stories_es": {
-      "name": "Pequeños Cuentos de Sabiduría",
+      "name": "Kids-Heaven Español",
       "handle": "",
       "channel_id": "",
       "type": "stories",
@@ -67,7 +67,7 @@
       }
     },
     "stories_fr": {
-      "name": "Petits Contes de Sagesse",
+      "name": "Kids-Heaven Français",
       "handle": "",
       "channel_id": "",
       "type": "stories",
@@ -89,7 +89,7 @@
       }
     },
     "stories_pt": {
-      "name": "Pequenos Contos de Sabedoria",
+      "name": "Kids-Heaven Português",
       "handle": "",
       "channel_id": "",
       "type": "stories",
@@ -111,7 +111,7 @@
       }
     },
     "stories_ar": {
-      "name": "حكايات الحكمة الصغيرة",
+      "name": "Kids-Heaven العربية",
       "handle": "",
       "channel_id": "",
       "type": "stories",
@@ -133,7 +133,7 @@
       }
     },
     "education_oxford": {
-      "name": "Little Wisdom Academy - Oxford",
+      "name": "Kids-Heaven Academy - Oxford",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -187,7 +187,7 @@
       }
     },
     "education_cambridge": {
-      "name": "Little Wisdom Academy - Cambridge",
+      "name": "Kids-Heaven Academy - Cambridge",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -241,7 +241,7 @@
       }
     },
     "education_oxford_hi": {
-      "name": "Little Wisdom Academy Hindi - Oxford",
+      "name": "Kids-Heaven Academy Hindi - Oxford",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -278,7 +278,7 @@
       }
     },
     "education_cambridge_hi": {
-      "name": "Little Wisdom Academy Hindi - Cambridge",
+      "name": "Kids-Heaven Academy Hindi - Cambridge",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -313,7 +313,7 @@
       }
     },
     "education_oxford_es": {
-      "name": "Academia Little Wisdom - Oxford",
+      "name": "Kids-Heaven Academy - Oxford",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -348,7 +348,7 @@
       }
     },
     "education_cambridge_es": {
-      "name": "Academia Little Wisdom - Cambridge",
+      "name": "Kids-Heaven Academy - Cambridge",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -382,7 +382,7 @@
       }
     },
     "education_cambridge_ar": {
-      "name": "أكاديمية الحكمة الصغيرة - كامبريدج",
+      "name": "Kids-Heaven Academy - كامبريدج",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -416,7 +416,7 @@
       }
     },
     "education_oxford_ar": {
-      "name": "أكاديمية الحكمة الصغيرة - أكسفورد",
+      "name": "Kids-Heaven Academy - أكسفورد",
       "handle": "",
       "channel_id": "",
       "type": "education",
@@ -450,7 +450,7 @@
       }
     },
     "ai_kids_en": {
-      "name": "Little Wisdom AI Lab",
+      "name": "Kids-Heaven AI Lab",
       "handle": "",
       "channel_id": "",
       "type": "ai_education",
@@ -475,7 +475,7 @@
       }
     },
     "ai_kids_hi": {
-      "name": "Little Wisdom AI Lab Hindi",
+      "name": "Kids-Heaven AI Lab Hindi",
       "handle": "",
       "channel_id": "",
       "type": "ai_education",
@@ -499,7 +499,7 @@
       }
     },
     "ai_kids_es": {
-      "name": "Little Wisdom AI Lab Español",
+      "name": "Kids-Heaven AI Lab Español",
       "handle": "",
       "channel_id": "",
       "type": "ai_education",
@@ -518,7 +518,7 @@
       }
     },
     "ai_kids_ar": {
-      "name": "مختبر الحكمة للذكاء الاصطناعي",
+      "name": "Kids-Heaven AI Lab العربية",
       "handle": "",
       "channel_id": "",
       "type": "ai_education",
@@ -536,7 +536,7 @@
       }
     },
     "crafts_carpentry": {
-      "name": "Little Builders Workshop - Carpentry",
+      "name": "Kids-Heaven Workshop - Carpentry",
       "handle": "",
       "channel_id": "",
       "type": "crafts_skills",
@@ -560,7 +560,7 @@
       }
     },
     "crafts_plumbing": {
-      "name": "Little Builders Workshop - Home Skills",
+      "name": "Kids-Heaven Workshop - Home Skills",
       "handle": "",
       "channel_id": "",
       "type": "crafts_skills",
@@ -584,7 +584,7 @@
       }
     },
     "crafts_electrical": {
-      "name": "Little Builders Workshop - Electrical & Tech",
+      "name": "Kids-Heaven Workshop - Electrical & Tech",
       "handle": "",
       "channel_id": "",
       "type": "crafts_skills",

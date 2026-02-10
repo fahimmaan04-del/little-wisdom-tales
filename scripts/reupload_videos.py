@@ -1294,7 +1294,7 @@ Examples:
     _ensure_reedit_table()
 
     logger.info("=" * 70)
-    logger.info("Little Wisdom Tales - Video Re-Edit Pipeline")
+    logger.info("Kids-Heaven - Video Re-Edit Pipeline")
     logger.info(f"  Command: {args.command}")
     logger.info(f"  Quality: {IMAGES_PER_SCENE} images/scene, "
                 f"{CROSSFADE_DURATION}s crossfade, "

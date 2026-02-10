@@ -1,7 +1,7 @@
 """
 AI Content Generator - Creates educational AI lessons for kids.
 
-Generates structured lesson scripts for the "Little Wisdom AI Lab" YouTube
+Generates structured lesson scripts for the "Kids-Heaven AI Lab" YouTube
 channel, teaching kids (ages 8-14) how to use AI to build apps, games,
 and creative projects.
 
@@ -119,7 +119,7 @@ def build_ai_lesson_prompt(category: str, topic: str, lesson_title: str) -> str:
     approved_tools = curriculum.get("approved_tools", [])
     tool_names = [t["name"] for t in approved_tools]
 
-    return f"""You are an educational content creator for a YouTube channel called "Little Wisdom AI Lab" that teaches kids how to use AI.
+    return f"""You are an educational content creator for a YouTube channel called "Kids-Heaven AI Lab" that teaches kids how to use AI.
 
 Your host character is "Byte the Robot" - a friendly blue robot kid with glowing green eyes, an antenna on his head, and a tablet in his hand. Byte is enthusiastic, encouraging, and explains things with fun analogies.
 
@@ -405,7 +405,7 @@ def get_ai_playlist_name(category: str) -> str:
     cat_data = curriculum["categories"].get(category)
     if cat_data:
         return cat_data.get("playlist_name", cat_data.get("display_name", category))
-    return f"Little Wisdom AI Lab - {category.replace('_', ' ').title()}"
+    return f"Kids-Heaven AI Lab - {category.replace('_', ' ').title()}"
 
 
 def get_curriculum_stats() -> dict:
@@ -487,7 +487,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--stats":
         # Show curriculum generation progress
         stats = get_curriculum_stats()
-        print(f"\nLittle Wisdom AI Lab - Curriculum Stats")
+        print(f"\nKids-Heaven AI Lab - Curriculum Stats")
         print(f"{'=' * 50}")
         print(
             f"Total: {stats['generated_count']}/{stats['total_lessons']} lessons "

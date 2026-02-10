@@ -388,7 +388,7 @@ def build_crafts_lesson_prompt(
     category_display = curriculum["categories"][category]["display_name"]
     opening_phrase = random.choice(HANDY_PHRASES)
 
-    return f"""You are an expert children's educational content creator making a video lesson for a YouTube kids channel called "Little Wisdom Tales".
+    return f"""You are an expert children's educational content creator making a video lesson for a YouTube kids channel called "Kids-Heaven".
 
 Generate a hands-on skills lesson script based on these parameters:
 - Category: {category_display}
@@ -493,7 +493,7 @@ Return a JSON object with this EXACT structure (no markdown, just raw JSON):
       "scene_type": "outro"
     }}
   ],
-  "tags": ["kids skills", "{category.replace('_', ' ')}", "{topic}", "handy the helper", "kids learning", "safety first", "cartoon workshop", "Little Wisdom Tales"],
+  "tags": ["kids skills", "{category.replace('_', ' ')}", "{topic}", "handy the helper", "kids learning", "safety first", "cartoon workshop", "Kids-Heaven"],
   "description": "Join Handy the Helper as he teaches {lesson_title} in this fun skills video for kids! Learn about {topic} with colorful cartoon animations and important safety tips!"
 }}
 
@@ -639,7 +639,7 @@ def _enrich_crafts_script(
         "cartoon workshop",
         "safety first",
         "hands-on learning",
-        "Little Wisdom Tales",
+        "Kids-Heaven",
         "educational video",
         "kids DIY",
     ]

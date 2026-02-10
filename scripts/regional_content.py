@@ -116,7 +116,7 @@ def localize_description(description: str, language: str, channel_name: str = ""
     regions = load_region_config()
     lang_name = regions.get(language, {}).get("language_name", language)
 
-    footer = f"\n\n---\n{channel_name}\n#{lang_name}ForKids #KidsEducation #LittleWisdomTales"
+    footer = f"\n\n---\n{channel_name}\n#{lang_name}ForKids #KidsEducation #KidsHeaven"
     return translated + footer
 
 

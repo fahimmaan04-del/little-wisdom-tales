@@ -1,4 +1,4 @@
-# Little Wisdom Tales - Project Instructions
+# Kids-Heaven - Project Instructions
 
 <!-- AUTO-MANAGED: project-description -->
 ## Project Overview
@@ -55,6 +55,7 @@ Fully automated multi-channel YouTube pipeline that creates and publishes kid-fr
 **Education Pipeline:**
 - `education_orchestrator.py`: Education video pipeline (lesson → TTS → images → video → upload)
 - `education_generator.py`: LLM-based lesson script generation from Oxford/Cambridge syllabus (Professor Wisdom)
+- `ai_content_generator.py`: AI curriculum lesson builder (deprecated: use `ai_education_generator.py`)
 - `ai_education_generator.py`: AI/coding/robotics lesson generation (Byte the Robot character)
 - `crafts_skills_generator.py`: Hands-on skill lesson generation - carpentry, plumbing, electrical (Handy the Helper)
 
@@ -73,7 +74,10 @@ Fully automated multi-channel YouTube pipeline that creates and publishes kid-fr
 **Utilities:**
 - `scheduler.py`: 24/7 autonomous scheduler managing 21 channels (batch/incremental modes)
 - `youtube_manager.py`: YouTube Data API v3 upload, analytics tracking
+- `youtube_analytics.py`: YouTube Analytics API v2 metrics and search term tracking
 - `reupload_videos.py`: Re-upload system for failed uploads
+- `quick_setup.py`: Interactive OAuth setup for all channels
+- `setup_channels.sh`: Bash script for batch channel authentication
 - `image_fetcher.py`: Pixabay/Pexels fallback for stock images
 
 ### Directory Structure
@@ -149,6 +153,21 @@ python scripts/batch_pipeline.py stats
 python scripts/reupload_videos.py
 ```
 
+### Channel Setup
+```bash
+# Interactive OAuth setup for all 21 channels
+python scripts/quick_setup.py
+
+# List all channels and auth status
+python scripts/quick_setup.py --list
+
+# Test authenticated channels
+python scripts/quick_setup.py --test
+
+# Batch setup via shell script
+bash scripts/setup_channels.sh
+```
+
 ### Service Management
 ```bash
 # Start 24/7 service
@@ -200,8 +219,8 @@ source /mnt/projects/youtube/venv/bin/activate
 - Configuration files in `config/` as JSON (channels.json, education_syllabus.json, etc.)
 - Environment variables in `.env` (copy from `.env.example`)
 - Databases: SQLite at `data/` (stories.db, channels.db)
-  - `stories.db`: Story scripts + education_lessons table + analytics
-  - `channels.db`: Multi-channel upload quota tracking + playlist_cache
+  - `stories.db`: Unified content database with stories, education_lessons, ai_education_lessons, crafts_skills_lessons, video_analytics, search_terms, channel_analytics tables
+  - `channels.db`: Multi-channel upload quota tracking (channel_uploads) + playlist ID cache (playlist_cache)
 
 ### Python Patterns
 - Use `from dotenv import load_dotenv` + `load_dotenv()` at module top
@@ -209,6 +228,13 @@ source /mnt/projects/youtube/venv/bin/activate
 - Path objects from `pathlib.Path` for all file operations
 - Environment variable access: `Path(os.getenv("OUTPUT_DIR", "./output"))`
 - Script metadata includes `content_type` field: "story", "education", "ai_education", "crafts_skills"
+
+### Host Characters
+- **Professor Wisdom** (education): Friendly owl character with glasses, appears in classroom scenes
+- **Byte the Robot** (ai_education): Blue robot kid with glowing green eyes, antenna, tablet in hand
+- **Handy the Helper** (crafts_skills): Toolbelt character with yellow hard hat, safety goggles, colorful tools
+- Host-specific catchphrases: BYTE_PHRASES, HANDY_PHRASES in respective generator modules
+- Visual themes per host: CATEGORY_VISUAL_THEMES dict defines colors, props, setting for each content type
 
 ### Multi-Channel Management
 - Channel selection via `channel_manager.load_channel_config()` from channels.json
@@ -218,10 +244,12 @@ source /mnt/projects/youtube/venv/bin/activate
 - Playlist management: `get_or_create_playlist()` + `add_video_to_playlist()`
 
 ### Multi-Language Support
-- Translation via `regional_content.translate_script(script, target_lang)`
+- Translation via `regional_content.translate_script(script, target_lang)` using deep-translator
 - Regional TTS voices via `get_regional_tts_voice(language)` from channels.json
+- Batch regional generation: `create_regional_version(script, channel_key)` in batch_pipeline
 - Keep visual_description and image prompts in English (SDXL Turbo works best with English)
 - Translate narration, title, description, tags to target language
+- Regional channels: stories_hi (Hindi), stories_es (Spanish), stories_fr (French), stories_pt (Portuguese), stories_ar (Arabic)
 
 ### TTS + Audio Processing
 - Edge TTS generates MP3 → FFmpeg converts to WAV (no libmp3lame available)
@@ -270,13 +298,18 @@ source /mnt/projects/youtube/venv/bin/activate
 ## Patterns
 
 ### Batch Pipeline Flow (100+ videos/day)
-1. **Phase 1 (01:00 UTC)**: Generate all scripts via LLM (stories + education + AI lessons)
+1. **Phase 1 (01:00 UTC)**: Generate all scripts via LLM
+   - Stories (36/day): 6 channels × 6 videos each (EN, HI, ES, FR, PT, AR)
+   - Education (48/day): 7 channels × 6-7 videos (Oxford, Cambridge, regional)
+   - AI Education (20/day): 4 channels × 5 videos (EN, HI, ES, FR)
+   - Crafts/Skills (12/day): 3 channels × 4 videos (carpentry, plumbing, electrical)
+   - Total: 116 videos/day
 2. **Phase 2 (02:00 UTC)**: Generate all audio via TTS (multi-language, async batch)
 3. **Phase 3 (03:00 UTC)**: Generate all images via GPU (longest phase, ~5h for 100+ videos)
 4. **Phase 4 (08:00 UTC)**: Assemble all videos via FFmpeg (crossfade animations + subtitles)
-5. **Phase 5 (10:00-22:00 UTC)**: Upload in batches across 18 channels (quota-aware)
-6. **Every 6h**: Analytics refresh + keyword optimization
-7. **Every 1h**: Health check (GPU, disk, upload progress)
+5. **Phase 5 (10:00-22:00 UTC)**: Upload in batches across 21 channels (quota-aware)
+6. **Every 6h**: Analytics refresh via YouTube Analytics API v2 + keyword optimization
+7. **Every 1h**: Health check (GPU, disk, upload progress, pipeline state)
 
 ### Story Generation Flow
 1. `pick_smart_story_params()` selects collection + moral based on past performance
@@ -291,7 +324,23 @@ source /mnt/projects/youtube/venv/bin/activate
 3. Inject education-specific engagement hooks (EDUCATION_INTRO_HOOKS, EDUCATION_OUTRO_HOOKS)
 4. Generate images with `content_type="education"` → EDUCATION_STYLE_PREFIX
 5. Upload to curriculum-specific playlist via `get_or_create_playlist()`
-6. `mark_lesson_published()` tracks progress in education.db
+6. `mark_lesson_published()` tracks progress in education_lessons table
+
+### AI Education Content Flow
+1. `pick_next_ai_lesson()` selects next lesson from ai_kids_curriculum.json
+2. `generate_ai_lesson_script()` creates lesson with Byte the Robot character
+3. Inject AI-specific engagement hooks with "Try It!" challenges
+4. Generate images with `content_type="ai_education"` → AI_EDUCATION_STYLE_PREFIX
+5. Upload to AI education channel with category-specific playlists
+6. Track in ai_education_lessons table
+
+### Crafts & Skills Content Flow
+1. `pick_next_crafts_lesson()` selects next lesson from crafts_skills_curriculum.json
+2. `generate_crafts_lesson_script()` creates lesson with Handy the Helper character
+3. Inject safety reminders and interactive quiz scenes
+4. Generate images with `content_type="crafts_skills"` → CRAFTS_SKILLS_STYLE_PREFIX
+5. Upload to crafts/skills channel with category-specific playlists
+6. Track in crafts_skills_lessons table with safety_note field
 
 ### Multi-Language Content Flow
 1. Generate English script first
@@ -324,7 +373,11 @@ source /mnt/projects/youtube/venv/bin/activate
 1. **stories.db**: Unified content database
    - `stories` table: Story scripts as JSON, status tracking (`generated` → `published`)
    - `education_lessons` table: Education lesson metadata, curriculum progress tracking
-   - `analytics` table: Tracks daily views, likes, watch_time per video_id
+   - `ai_education_lessons` table: AI lesson metadata, category and topic tracking
+   - `crafts_skills_lessons` table: Crafts/skills lesson metadata, safety notes
+   - `video_analytics` table: YouTube Analytics API v2 per-video metrics (views, CTR, watch time)
+   - `search_terms` table: YouTube search queries driving traffic to videos
+   - `channel_analytics` table: Per-channel daily aggregate metrics
 2. **channels.db**: Multi-channel upload quota tracking
    - `channel_uploads` table: Tracks uploads per channel per day, enforces 10,000 unit daily limit
    - `playlist_cache` table: Maps playlist keys to YouTube playlist IDs per channel

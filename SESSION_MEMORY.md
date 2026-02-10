@@ -1,4 +1,4 @@
-# Little Wisdom Tales - Session Memory
+# Kids-Heaven - Session Memory
 
 > **Last Updated**: 2026-02-10
 > **Status**: ACTIVE - 21-channel pipeline running via systemd
@@ -100,14 +100,14 @@ Every 1h: Health check (GPU, disk, upload progress)
 
 ## Bugs Fixed This Session
 
-- `.env` line 22: `CHANNEL_NAME=Little Wisdom Tales` was unquoted, causing bash `source` to fail with "Wisdom: command not found". Fixed by quoting the value.
+- `.env` line 22: `CHANNEL_NAME=Kids-Heaven` was unquoted, causing bash `source` to fail with "Wisdom: command not found". Fixed by quoting the value.
 - systemd service file was outdated in `/etc/systemd/system/`. Deployed updated version with batch mode, watchdog, and memory limits.
 
 ---
 
 ## YouTube Channel
 
-- **Name**: Little Wisdom Tales
+- **Name**: Kids-Heaven
 - **Handle**: @WisdomTalesKids
 - **Channel ID**: UCYu3K3wJQ1t12qzMHXuXYnQ
 - **Published Videos**: 10 (stock photos, need AI image upgrade)

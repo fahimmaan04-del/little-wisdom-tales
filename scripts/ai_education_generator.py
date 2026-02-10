@@ -215,7 +215,7 @@ def build_ai_lesson_prompt(
     category_display = category_data.get("display_name", category.replace("_", " ").title())
     difficulty = category_data.get("difficulty", "beginner")
 
-    return f"""You are an expert children's educational content creator making a video lesson for a YouTube kids channel called "Little Wisdom AI Lab".
+    return f"""You are an expert children's educational content creator making a video lesson for a YouTube kids channel called "Kids-Heaven AI Lab".
 
 Generate an AI education lesson script based on these parameters:
 - Category: {category_display}
@@ -504,7 +504,7 @@ def _enrich_ai_lesson_script(
         "kids coding",
         "learn AI",
         "tech for kids",
-        "Little Wisdom AI Lab",
+        "Kids-Heaven AI Lab",
     ]
     lesson_script.setdefault("tags", default_tags)
 

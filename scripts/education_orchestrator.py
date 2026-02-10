@@ -73,21 +73,21 @@ logger = logging.getLogger(__name__)
 
 EDUCATION_INTRO_HOOKS = [
     (
-        "Welcome back to Little Wisdom Academy! "
+        "Welcome back to Kids-Heaven Academy! "
         "Today Professor Wisdom is going to teach us about {topic}! "
         "Are you ready? Let's go!"
     ),
     (
         "Hoo-hoo! Hello, little learners! "
-        "Welcome to Little Wisdom Academy! "
+        "Welcome to Kids-Heaven Academy! "
         "Today Professor Wisdom has an amazing lesson about {topic}! Let's start!"
     ),
     (
-        "Hey friends! It's time for another fun lesson at Little Wisdom Academy! "
+        "Hey friends! It's time for another fun lesson at Kids-Heaven Academy! "
         "Professor Wisdom is SO excited to teach you about {topic} today!"
     ),
     (
-        "Hello everyone! Welcome to Little Wisdom Academy! "
+        "Hello everyone! Welcome to Kids-Heaven Academy! "
         "Get your thinking caps on because today we're learning about {topic}! "
         "Professor Wisdom, take it away!"
     ),
@@ -110,21 +110,21 @@ EDUCATION_OUTRO_HOOKS = [
     (
         "Amazing! You learned so much today! "
         "Don't forget to subscribe for more fun lessons! "
-        "See you next time at Little Wisdom Academy!"
+        "See you next time at Kids-Heaven Academy!"
     ),
     (
         "Hoo-hoo! What a great lesson! "
         "You're becoming such a smart learner! "
-        "Come back tomorrow for more fun at Little Wisdom Academy!"
+        "Come back tomorrow for more fun at Kids-Heaven Academy!"
     ),
     (
         "That was fantastic! Professor Wisdom is so proud of you! "
-        "There are new lessons every day at Little Wisdom Academy! "
+        "There are new lessons every day at Kids-Heaven Academy! "
         "See you in the next video!"
     ),
     (
         "Great job today! Remember what you learned! "
-        "Subscribe to Little Wisdom Academy for more fun lessons! "
+        "Subscribe to Kids-Heaven Academy for more fun lessons! "
         "Bye for now, little learners!"
     ),
     (
@@ -159,7 +159,7 @@ def inject_education_hooks(lesson_script: dict) -> dict:
         "scene_number": 0,
         "narration": intro_text,
         "visual_description": (
-            "Bright colorful classroom intro screen for Little Wisdom Academy, "
+            "Bright colorful classroom intro screen for Kids-Heaven Academy, "
             "Professor Wisdom the cartoon owl with big glasses and graduation cap "
             "waving excitedly, colorful balloons and sparkles, a banner reading "
             "the lesson title, cheerful and inviting"
@@ -194,7 +194,7 @@ def inject_education_hooks(lesson_script: dict) -> dict:
         "scene_number": 999,
         "narration": random.choice(EDUCATION_OUTRO_HOOKS),
         "visual_description": (
-            "Colorful ending screen for Little Wisdom Academy, "
+            "Colorful ending screen for Kids-Heaven Academy, "
             "Professor Wisdom the cartoon owl waving goodbye with sparkles and stars, "
             "a subscribe button animation, bright cheerful background"
         ),
@@ -230,7 +230,7 @@ def inject_education_hooks(lesson_script: dict) -> dict:
 EDUCATION_TITLE_TEMPLATES = [
     "{lesson_title} | Class {class_level} {subject} | Fun Animated Lesson for Kids",
     "Learn {lesson_title} | Class {class_level} {subject} | Kids Education",
-    "{lesson_title} | {subject} for Class {class_level} | Little Wisdom Academy",
+    "{lesson_title} | {subject} for Class {class_level} | Kids-Heaven Academy",
     "Class {class_level} {subject}: {lesson_title} | Educational Video for Kids",
     "{lesson_title} | Fun {subject} Lesson | Class {class_level} Kids Learning",
     "Professor Wisdom Teaches {lesson_title} | Class {class_level} {subject}",
@@ -297,14 +297,14 @@ def generate_education_description(
 
     # Pick a random call to action for variety
     ctas = [
-        "Subscribe to Little Wisdom Academy for new lessons every day!",
+        "Subscribe to Kids-Heaven Academy for new lessons every day!",
         "Hit subscribe so you never miss a fun lesson from Professor Wisdom!",
         "New educational videos every day! Subscribe for more!",
     ]
 
     description = f"""{base_desc}
 
-Join Professor Wisdom the friendly owl at Little Wisdom Academy as he teaches {lesson_title}!
+Join Professor Wisdom the friendly owl at Kids-Heaven Academy as he teaches {lesson_title}!
 
 Class Level: Class {class_level} (Ages {_get_age_range(class_level)})
 Subject: {subject_display}
@@ -316,7 +316,7 @@ Lesson Message: {moral}
 {random.choice(ctas)}
 
 ---
-Little Wisdom Academy by Little Wisdom Tales
+Kids-Heaven Academy by Kids-Heaven
 Fun animated educational videos for kids aged 4-10.
 Following {curriculum_display} and Cambridge International curriculum standards.
 Learn Mathematics, English, Science, and General Knowledge with Professor Wisdom!
@@ -324,7 +324,7 @@ Learn Mathematics, English, Science, and General Knowledge with Professor Wisdom
 New lessons EVERY DAY!
 
 #KidsEducation #Class{class_level}{subject_display.replace(' ', '')} #{curriculum_display}Curriculum
-#LearnWithProfessorWisdom #LittleWisdomAcademy #LittleWisdomTales
+#LearnWithProfessorWisdom #KidsHeavenAcademy #KidsHeaven
 #KidsLearning #FunEducation #AnimatedLessons #{subject_display.replace(' ', '')}ForKids
 #PrimarySchool #ElementaryEducation #Class{class_level}
 """
@@ -379,8 +379,8 @@ def generate_education_tags(
         f"age {age_range} education",
         # Channel tags
         "Professor Wisdom",
-        "Little Wisdom Academy",
-        "Little Wisdom Tales",
+        "Kids-Heaven Academy",
+        "Kids-Heaven",
         "learn with owl",
         "cartoon education",
         "animated lesson",
@@ -812,7 +812,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Education Channel Orchestrator - Little Wisdom Academy"
+        description="Education Channel Orchestrator - Kids-Heaven Academy"
     )
     parser.add_argument(
         "command",

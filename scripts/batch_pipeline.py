@@ -490,7 +490,7 @@ def run_daily_batch():
             generation_plan["crafts_skills"][key] = {"count": target, "skill_category": skill_cat}
 
     logger.info("=" * 70)
-    logger.info("DAILY BATCH PIPELINE - Little Wisdom Tales (All Channels)")
+    logger.info("DAILY BATCH PIPELINE - Kids-Heaven (All Channels)")
     logger.info(f"  Total channels: {len(config['channels'])}")
     logger.info(f"  EN Stories: {generation_plan['stories_en']}")
     logger.info(f"  Regional Stories: {sum(v['count'] for v in generation_plan['regional_stories'].values())}")

@@ -1,8 +1,30 @@
 /mnt/projects/youtube/.env
-/mnt/projects/youtube/scripts/channel_manager.py
-/mnt/projects/youtube/scripts/youtube_analytics.py
-/mnt/projects/youtube/scripts/keyword_optimizer.py
-/mnt/projects/youtube/scripts/scheduler.py
-/mnt/projects/youtube/scripts/ai_image_generator.py
-/mnt/projects/youtube/scripts/video_assembler.py
+/mnt/projects/youtube/scripts/channel_manager.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/youtube_analytics.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/keyword_optimizer.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/scheduler.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/ai_image_generator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/video_assembler.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
 /mnt/projects/youtube/scripts/video_assembler.py.tmp.412686.1770723085629
+/mnt/projects/youtube/config/ai_kids_curriculum.json [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/config/channels.json [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/config/crafts_skills_curriculum.json [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/config/education_syllabus.json [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/ai_content_generator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/ai_education_generator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/batch_pipeline.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/crafts_skills_generator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/education_generator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/education_orchestrator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/quick_setup.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/regional_content.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/reupload_videos.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/setup_channels.sh [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/scripts/story_generator.py [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/start_pipeline.sh [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/systemd/kids-story-pipeline.service [2eae785: Scale to 21-channel multi-content pipeline with batch generation]
+/mnt/projects/youtube/SESSION_MEMORY.md [c253be9: Update session memory and task tracking for multi-channel launch]
+/mnt/projects/youtube/scripts/engagement_hooks.py
+/mnt/projects/youtube/scripts/orchestrator.py
+/mnt/projects/youtube/SETUP_GUIDE.md
+/mnt/projects/youtube/.env.example

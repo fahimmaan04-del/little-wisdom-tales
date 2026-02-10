@@ -1,8 +1,8 @@
 """
-TTS Generator - Creates cartoon-like voiceover using Edge TTS.
+TTS Generator - Creates voiceover using Edge TTS.
 
-Uses Microsoft Edge TTS (free, unlimited) with pitch shifting via FFmpeg
-to create fun, engaging cartoon character voices for kids' stories.
+Uses Microsoft Edge TTS (free, unlimited) with mature, engaging adult voices
+for storytelling. Optional FFmpeg pitch shifting for character differentiation.
 """
 
 import asyncio
@@ -61,7 +61,7 @@ def get_voice_for_character(region: str, character: str = None) -> dict:
 async def generate_speech_segment(
     text: str,
     output_path: str,
-    voice: str = "en-US-AnaNeural",
+    voice: str = "en-US-AriaNeural",
     rate: str = "+0%",
     pitch: str = "+0%",
 ) -> str:
